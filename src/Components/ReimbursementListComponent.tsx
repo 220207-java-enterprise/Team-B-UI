@@ -31,7 +31,8 @@ export const ReimbursementListComponent = () => {
         </thead>
 
         <tbody>
-          {reimbursements.map((reimbursement) => (
+          {/* TODO assign type correctly */}
+          {reimbursements.map((reimbursement:any) => (
             <tr key={reimbursement.id}>
               <td>{reimbursement.id}</td>
               <td>{reimbursement.amount}</td>

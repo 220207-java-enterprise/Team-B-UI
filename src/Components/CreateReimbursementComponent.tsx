@@ -10,7 +10,8 @@ const CreateReimbursementComponent = () => {
   const [description, setDescription] = useState("");
   const navigate = useNavigate(); // The 'useHistory() hook' returns an object history'
 
-  const saveReimbursement = (e:Event) => {
+  // TODO: figure out what type this is supposed to take
+  const saveReimbursement = (e:any) => {
     e.preventDefault();
     const reimbursement = { author_id, amount, description };
 

@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 const Reimbursements_REST_API_URL = "http://localhost:4001/ers/reimbs";
 
 class ReimbursementService {
@@ -8,7 +7,7 @@ class ReimbursementService {
     return axios.get(Reimbursements_REST_API_URL);
   }
 
-  createReimbursement(reimbursement:Object){
+  createReimbursement(reimbursement: object){
     return axios.post(Reimbursements_REST_API_URL,reimbursement)
   }
 }
