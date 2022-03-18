@@ -1,5 +1,4 @@
 import {
-  BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
@@ -15,20 +14,20 @@ import CreateReimbursement from "./components/NewReimbursementForm";
 
 function App() {
   return (
-    <Router>
-        <Header />
-        <Routes>
-          <Route
-            path="/reimbursements"
-            element={<ReimbursementList />}
-          />
-          <Route
-            path="/add-reimbursement"
-            element={<CreateReimbursement />}
-          />
-        </Routes>
-        <Footer />
-      </Router>
+    <>
+      <Header />
+      <Routes>
+        <Route
+          path="/reimbursements"
+          element={<ReimbursementList />}
+        />
+        <Route
+          path="/reimbursements/create"
+          element={<CreateReimbursement />}
+        />
+      </Routes>
+      <Footer />
+    </>
   );
 }
 

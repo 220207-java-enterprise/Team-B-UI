@@ -24,7 +24,7 @@ export const ReimbursementList = () => {
   return (
     <main id="reimbursement-list" className="container-fluid">
       <h2 className="text-center">List Reimbursements</h2>
-      <Link to = "/add-reimbursement" className="btn btn-primary mb-2">Create Reimbursement</Link>
+      <Link to = "/reimbursements/create" className="btn btn-primary mb-2">Create Reimbursement</Link>
       <table className="table table-bordered table-striped m-auto">
         <thead>
           <tr>
@@ -39,7 +39,6 @@ export const ReimbursementList = () => {
         </thead>
 
         <tbody>
-          {/* TODO assign type correctly */}
           {reimbursements.map((
             reimbursement: {
               id: string,
