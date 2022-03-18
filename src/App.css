@@ -3,7 +3,17 @@ body {
 }
 
 main {
-  min-height: calc(100vh-100px);
+  min-height: calc(100vh - 106px);
+}
+
+#new-reimbursement {
+  display: flex;
+  align-items: center;
+}
+
+#new-reimbursement .card {
+  margin-bottom: 22vh;
+  padding: 10px
 }
 
 footer {
