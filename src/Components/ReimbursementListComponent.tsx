@@ -27,6 +27,10 @@ export const ReimbursementListComponent = () => {
             <td>Reimbursement Id</td>
             <td>Amount</td>
             <td>Description</td>
+            <td>Author_Id</td>
+            <td>Resolver_Id</td>
+            <td>Status</td>
+            <td>Type</td>
           </tr>
         </thead>
 
@@ -37,6 +41,10 @@ export const ReimbursementListComponent = () => {
               <td>{reimbursement.id}</td>
               <td>{reimbursement.amount}</td>
               <td>{reimbursement.description}</td>
+              <td>{reimbursement.author_id}</td>
+              <td>{reimbursement.resolver_id}</td>
+              <td>{reimbursement.status}</td>
+              <td>{reimbursement.type}</td>
             </tr>
           ))}
         </tbody>
