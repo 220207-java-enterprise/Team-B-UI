@@ -21,6 +21,8 @@ export const UserListComponent = () => {
     <main className="container">
       <h2 className="text-center">List Users</h2>
       <Link to = "/add-user" className="btn btn-primary mb-2">Create User</Link>
+      <Link to = "/activate-user" className="btn btn-primary mb-2">Activate User</Link>
+      <Link to = "/delete-user" className="btn btn-primary mb-2">Delete User</Link>
       <table className="table table-bordered table-striped">
         <thead>
           <tr>
