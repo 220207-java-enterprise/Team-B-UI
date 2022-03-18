@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import ReimbursementService from "../services/ReimbursementService";
 
 export const ReimbursementList = () => {
@@ -9,8 +9,12 @@ export const ReimbursementList = () => {
   useEffect(() => {
     ReimbursementService.getReimbursements()
       .then((response) => {
-        setReimbursements(response.data);
-        console.log(response.data);
+        console.log(response);
+        
+        if (response.status === 200) 
+          setReimbursements(response.data);
+        else
+          console.log(response.status);
       })
       .catch((error) => {
         console.log(error);
@@ -18,10 +22,10 @@ export const ReimbursementList = () => {
   }, []);
 
   return (
-    <main className="container">
+    <main id="reimbursement-list" className="container-fluid">
       <h2 className="text-center">List Reimbursements</h2>
       <Link to = "/add-reimbursement" className="btn btn-primary mb-2">Create Reimbursement</Link>
-      <table className="table table-bordered table-striped">
+      <table className="table table-bordered table-striped m-auto">
         <thead>
           <tr>
             <td>Reimbursement Id</td>
@@ -36,7 +40,17 @@ export const ReimbursementList = () => {
 
         <tbody>
           {/* TODO assign type correctly */}
-          {reimbursements.map((reimbursement:any) => (
+          {reimbursements.map((
+            reimbursement: {
+              id: string,
+              amount: string,
+              description: string,
+              author_id: string,
+              resolver_id: string,
+              status: string,
+              type: string
+            }
+          ) => (
             <tr key={reimbursement.id}>
               <td>{reimbursement.id}</td>
               <td>{reimbursement.amount}</td>
