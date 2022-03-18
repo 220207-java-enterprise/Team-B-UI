@@ -2,8 +2,24 @@ body {
   margin: 0;
 }
 
+header a {
+  margin-left: 15px;
+}
+
 main {
-  min-height: calc(100vh-100px);
+  min-height: calc(100vh - 106px);
+  background-color: rgb(12, 11, 61);
+}
+
+#new-reimbursement {
+  display: flex;
+  align-items: center;
+}
+
+#new-reimbursement .card {
+  margin-bottom: 22vh;
+  padding: 10px;
+  background-color: green;
 }
 
 footer {

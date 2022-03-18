@@ -19,7 +19,7 @@ class ReimbursementService {
         Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIzMjYzMmJhOS0xYzVkLTQ3YzQtOGI3Ni0zZjI1Y2VhYTBjOTUiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc2MTc1NzIsImV4cCI6MTY0NzYyMTE3Miwic3ViIjoiZXBzaWxvbnVwc2lsb24iLCJyb2xlIjoiRU1QTE9ZRUUifQ.f0qktQKeD9y67fqYk1Yp_jCK7fcwGDZDNxHrAMGzD_A"
       }
     }
-    return axios.post(Reimbursements_REST_API_URL,reimbursement, config)
+    return axios.post(Reimbursements_REST_API_URL, reimbursement, config)
   }
 }
 

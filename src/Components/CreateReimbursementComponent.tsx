@@ -16,7 +16,7 @@ const CreateReimbursementComponent = () => {
     e.preventDefault();
     const reimbursement = { amount, description, type };
     console.log(reimbursement);
-   ReimbursementService.createReimbursement(reimbursement).then((response)=>{
+   ReimbursementService.createReimbursement(reimbursement).then(response=>{
       console.log(response.data)
 
       navigate('/reimbursements');
@@ -24,8 +24,7 @@ const CreateReimbursementComponent = () => {
 
   };
   return (
-    <main>
-      <br></br>
+    <main id="new-reimbursement">
       <div className="container">
         <div className="row">
           <div className="card col-md-6 offset-md-3 offset-md-3">
