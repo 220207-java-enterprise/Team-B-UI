@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import {Link} from 'react-router-dom'
+import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom'
 import ReimbursementService from "../services/ReimbursementService";
 
-export const ReimbursementListComponent = () => {
+export const ReimbursementList = () => {
   
   const [reimbursements, setReimbursements] = useState([]);
 
@@ -53,4 +53,4 @@ export const ReimbursementListComponent = () => {
   );
 };
 
-export default ReimbursementListComponent;
+export default ReimbursementList;

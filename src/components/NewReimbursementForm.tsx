@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import ReimbursementService from "../services/ReimbursementService";
 import { useNavigate } from 'react-router-dom';
 
-const CreateReimbursementComponent = () => {
+const NewReimbursementForm = () => {
   //Hardcoded Author ID
   //const [author_id, setAuthor_id] = useState("");
   const [amount, setAmount] = useState("");
@@ -92,4 +92,4 @@ const CreateReimbursementComponent = () => {
   );
 };
 
-export default CreateReimbursementComponent;
+export default NewReimbursementForm;

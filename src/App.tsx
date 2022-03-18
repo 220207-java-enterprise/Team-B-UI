@@ -8,26 +8,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 // components
-import HeaderComponent from "./Components/HeaderComponent";
-import FooterComponent from "./Components/FooterComponent";
-import ReimbursementListComponent from "./Components/ReimbursementListComponent";
-import CreateReimbursementComponent from "./Components/CreateReimbursementComponent";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ReimbursementList from "./components/ReimbursementList";
+import CreateReimbursement from "./components/NewReimbursementForm";
 
 function App() {
   return (
     <Router>
-        <HeaderComponent />
+        <Header />
         <Routes>
           <Route
             path="/reimbursements"
-            element={<ReimbursementListComponent />}
+            element={<ReimbursementList />}
           />
           <Route
             path="/add-reimbursement"
-            element={<CreateReimbursementComponent />}
+            element={<CreateReimbursement />}
           />
         </Routes>
-        <FooterComponent />
+        <Footer />
       </Router>
   );
 }
