@@ -12,6 +12,8 @@ import HeaderComponent from "./Components/HeaderComponent";
 import FooterComponent from "./Components/FooterComponent";
 import ReimbursementListComponent from "./Components/ReimbursementListComponent";
 import CreateReimbursementComponent from "./Components/CreateReimbursementComponent";
+import UserListComponent from "./Components/UserListComponent";
+import CreateUserComponent from "./Components/CreateUserComponent";
 
 function App() {
   return (
@@ -25,6 +27,14 @@ function App() {
           <Route
             path="/add-reimbursement"
             element={<CreateReimbursementComponent />}
+          />
+          <Route
+            path="/users"
+            element={<UserListComponent />}
+          />
+          <Route
+            path="/add-user"
+            element={<CreateUserComponent />}
           />
         </Routes>
         <FooterComponent />
