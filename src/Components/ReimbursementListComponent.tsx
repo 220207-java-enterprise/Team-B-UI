@@ -18,7 +18,7 @@ export const ReimbursementListComponent = () => {
   }, []);
 
   return (
-    <div className="container">
+    <main className="container">
       <h2 className="text-center">List Reimbursements</h2>
       <Link to = "/add-reimbursement" className="btn btn-primary mb-2">Create Reimbursement</Link>
       <table className="table table-bordered table-striped">
@@ -49,7 +49,7 @@ export const ReimbursementListComponent = () => {
           ))}
         </tbody>
       </table>
-    </div>
+    </main>
   );
 };
 

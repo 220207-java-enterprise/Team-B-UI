@@ -24,7 +24,7 @@ const CreateReimbursementComponent = () => {
 
   };
   return (
-    <div>
+    <main>
       <br></br>
       <div className="container">
         <div className="row">
@@ -89,7 +89,7 @@ const CreateReimbursementComponent = () => {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
