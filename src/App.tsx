@@ -16,6 +16,7 @@ import UserListComponent from "./Components/UserListComponent";
 import CreateUserComponent from "./Components/CreateUserComponent";
 import ActivateUserComponent from "./Components/ActivateUserComponent";
 import DeleteUserComponent from "./Components/DeleteUserComponent";
+import LoginComponent from "./Components/LoginComponent";
 
 function App() {
   return (
@@ -45,6 +46,10 @@ function App() {
           <Route
             path="/delete-user"
             element={<DeleteUserComponent />}
+          />
+          <Route
+            path="/login"
+            element={<LoginComponent/>}
           />
         </Routes>
         <FooterComponent />
