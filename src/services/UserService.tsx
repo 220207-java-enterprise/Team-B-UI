@@ -7,7 +7,7 @@ class UserService {
   getUsers() {
     const config = {
       headers : {
-        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxYjJkZDcyNy1jN2E0LTRmYzAtOTBmYS0yMmUxMjJmODNhMjQiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc2MjgwMDQsImV4cCI6MTY0NzYzMTYwNCwic3ViIjoiYWxwaGFvbWVnYSIsInJvbGUiOiJBRE1JTiJ9.WstnkZyHIXZDRwJMbVTQdUon3_rhP0b15tb4qnT-84A"
+        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxYjJkZDcyNy1jN2E0LTRmYzAtOTBmYS0yMmUxMjJmODNhMjQiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc2MzAyMzIsImV4cCI6MTY0NzYzMzgzMiwic3ViIjoiYWxwaGFvbWVnYSIsInJvbGUiOiJBRE1JTiJ9.E9lC3W40P2nsLDiAAJzcQk0GfFFnGLLrMTaYHEw5NZM"
       }
     }
     return axios.get(USERS_REST_API_URL, config);
@@ -24,6 +24,15 @@ class UserService {
       }
     }
     return axios.put(ACTIVATE_REST_API_URL,user,config)
+  }
+
+  deleteUser(user: object){
+    const config = {
+      headers : {
+        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxYjJkZDcyNy1jN2E0LTRmYzAtOTBmYS0yMmUxMjJmODNhMjQiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc2MzAyMzIsImV4cCI6MTY0NzYzMzgzMiwic3ViIjoiYWxwaGFvbWVnYSIsInJvbGUiOiJBRE1JTiJ9.E9lC3W40P2nsLDiAAJzcQk0GfFFnGLLrMTaYHEw5NZM"
+      }
+    }
+    return axios.put(USERS_REST_API_URL,user,config)
   }
 
 }

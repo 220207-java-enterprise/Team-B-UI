@@ -15,6 +15,7 @@ import CreateReimbursementComponent from "./Components/CreateReimbursementCompon
 import UserListComponent from "./Components/UserListComponent";
 import CreateUserComponent from "./Components/CreateUserComponent";
 import ActivateUserComponent from "./Components/ActivateUserComponent";
+import DeleteUserComponent from "./Components/DeleteUserComponent";
 
 function App() {
   return (
@@ -40,6 +41,10 @@ function App() {
           <Route
             path="/activate-user"
             element={<ActivateUserComponent />}
+          />
+          <Route
+            path="/delete-user"
+            element={<DeleteUserComponent />}
           />
         </Routes>
         <FooterComponent />
