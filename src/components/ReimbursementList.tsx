@@ -23,18 +23,18 @@ export const ReimbursementList = () => {
 
   return (
     <main id="reimbursement-list" className="container-fluid">
-      <h2 className="text-center">List Reimbursements</h2>
+      <h2 className="whiteCenter">List Reimbursements</h2>
       <Link to = "/reimbursements/create" className="btn btn-primary mb-2">Create Reimbursement</Link>
       <table className="table table-bordered table-striped m-auto">
         <thead>
           <tr>
-            <td>Reimbursement Id</td>
-            <td>Amount</td>
-            <td>Description</td>
-            <td>Author_Id</td>
-            <td>Resolver_Id</td>
-            <td>Status</td>
-            <td>Type</td>
+            <td className="white">Reimbursement Id</td>
+            <td className="white">Amount</td>
+            <td className="white">Description</td>
+            <td className="white">Author_Id</td>
+            <td className="white">Resolver_Id</td>
+            <td className="white">Status</td>
+            <td className="white">Type</td>
           </tr>
         </thead>
 

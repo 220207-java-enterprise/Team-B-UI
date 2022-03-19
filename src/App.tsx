@@ -11,11 +11,11 @@ import HeaderComponent from "./components/Header";
 import FooterComponent from "./components/Footer";
 import ReimbursementListComponent from "./components/ReimbursementList";
 import NewReimbursementForm from "./components/NewReimbursementForm";
-import UserListComponent from "./components/UserListComponent";
-import CreateUserComponent from "./components/CreateUserComponent";
-import ActivateUserComponent from "./components/ActivateUserComponent";
-import DeleteUserComponent from "./components/DeleteUserComponent";
-import LoginComponent from "./components/LoginComponent";
+import UserListComponent from "./components/UserList";
+import CreateUserComponent from "./components/CreateUser";
+import ActivateUserComponent from "./components/ActivateUser";
+import DeleteUserComponent from "./components/DeleteUser";
+import LoginComponent from "./components/Login";
 
 function App() {
   return (

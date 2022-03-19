@@ -18,19 +18,19 @@ export const UserListComponent = () => {
   }, []);
 
   return (
-    <main className="container">
-      <h2 className="text-center">List Users</h2>
+    <main className="container-fluid">
+      <h2 className="whiteCenter">List Users</h2>
       <Link to = "/add-user" className="btn btn-primary mb-2">Create User</Link>
       <Link to = "/activate-user" className="btn btn-primary mb-2">Activate User</Link>
       <Link to = "/delete-user" className="btn btn-primary mb-2">Delete User</Link>
       <table className="table table-bordered table-striped">
         <thead>
           <tr>
-            <td>User Id</td>
-            <td>First Name</td>
-            <td>Last Name</td>
-            <td>Username</td>
-            <td>Role</td>
+            <td className="white">User Id</td>
+            <td className="white">First Name</td>
+            <td className="white">Last Name</td>
+            <td className="white">Username</td>
+            <td className="white">Role</td>
           </tr>
         </thead>
 
