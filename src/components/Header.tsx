@@ -1,4 +1,4 @@
-const HeaderComponent = () => {
+const Header = () => {
   return (
     <header>
       <nav className='navbar navbar-expand-md navbar-dark bg-dark'>
@@ -10,4 +10,4 @@ const HeaderComponent = () => {
   )
 }
 
-export default HeaderComponent
+export default Header

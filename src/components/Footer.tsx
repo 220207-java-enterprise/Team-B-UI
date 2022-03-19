@@ -1,4 +1,4 @@
-const FooterComponent = () => {
+const Footer = () => {
   return (
     <footer>
       <span className="text-muted">All Rights Reserved 2022 @ERS</span>
@@ -6,4 +6,4 @@ const FooterComponent = () => {
   );
 };
 
-export default FooterComponent;
+export default Footer;

@@ -1,5 +1,4 @@
 import {
-  BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
@@ -8,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 // components
+<<<<<<< HEAD
 import HeaderComponent from "./Components/HeaderComponent";
 import FooterComponent from "./Components/FooterComponent";
 import ReimbursementListComponent from "./Components/ReimbursementListComponent";
@@ -54,6 +54,29 @@ function App() {
         </Routes>
         <FooterComponent />
       </Router>
+=======
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ReimbursementList from "./components/ReimbursementList";
+import CreateReimbursement from "./components/NewReimbursementForm";
+
+function App() {
+  return (
+    <>
+      <Header />
+      <Routes>
+        <Route
+          path="/reimbursements"
+          element={<ReimbursementList />}
+        />
+        <Route
+          path="/reimbursements/create"
+          element={<CreateReimbursement />}
+        />
+      </Routes>
+      <Footer />
+    </>
+>>>>>>> ebed8fa0fa30e08938dfbfa3f5bf679d36d316c6
   );
 }
 
