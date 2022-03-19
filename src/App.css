@@ -11,6 +11,10 @@ main {
   background-color: rgb(12, 11, 61);
 }
 
+#reimbursement-list table {
+  width: 85%;
+}
+
 #new-reimbursement {
   display: flex;
   align-items: center;
