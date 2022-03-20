@@ -8,7 +8,7 @@ const UserService = {
   getUsers: () => {
     const config = {
       headers: {
-
+        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxYjJkZDcyNy1jN2E0LTRmYzAtOTBmYS0yMmUxMjJmODNhMjQiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MTM3MDksImV4cCI6MTY0NzgxNzMwOSwic3ViIjoiYWxwaGFvbWVnYSIsInJvbGUiOiJBRE1JTiJ9.qr7qxrXe0JmzNqIsGoCul4OlZttPmOai9-Jz-lgGeXU"
       },
       validateStatus: () => true
     };
@@ -26,7 +26,7 @@ const UserService = {
   activateUser: (user: {id: string}) => {
     const config = {
       headers : {
-        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxYjJkZDcyNy1jN2E0LTRmYzAtOTBmYS0yMmUxMjJmODNhMjQiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc2MzM4NTAsImV4cCI6MTY0NzYzNzQ1MCwic3ViIjoiYWxwaGFvbWVnYSIsInJvbGUiOiJBRE1JTiJ9.B_ObCBCpxRJz9VxYyI8I6aW5DHMrvwdUim690-QTZQA"
+        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxYjJkZDcyNy1jN2E0LTRmYzAtOTBmYS0yMmUxMjJmODNhMjQiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MTM3MDksImV4cCI6MTY0NzgxNzMwOSwic3ViIjoiYWxwaGFvbWVnYSIsInJvbGUiOiJBRE1JTiJ9.qr7qxrXe0JmzNqIsGoCul4OlZttPmOai9-Jz-lgGeXU"
       }
     }
     return axios.put(ACTIVATE_REST_API_URL,user,config)
@@ -37,7 +37,7 @@ const UserService = {
       url: ACTIVATE_REST_API_URL,
       method: 'PUT',
       headers: {
-        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxYjJkZDcyNy1jN2E0LTRmYzAtOTBmYS0yMmUxMjJmODNhMjQiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc2MzM4NTAsImV4cCI6MTY0NzYzNzQ1MCwic3ViIjoiYWxwaGFvbWVnYSIsInJvbGUiOiJBRE1JTiJ9.B_ObCBCpxRJz9VxYyI8I6aW5DHMrvwdUim690-QTZQA"
+        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxYjJkZDcyNy1jN2E0LTRmYzAtOTBmYS0yMmUxMjJmODNhMjQiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MTM3MDksImV4cCI6MTY0NzgxNzMwOSwic3ViIjoiYWxwaGFvbWVnYSIsInJvbGUiOiJBRE1JTiJ9.qr7qxrXe0JmzNqIsGoCul4OlZttPmOai9-Jz-lgGeXU"
       },
       data: user,
       validateStatus: () => true
