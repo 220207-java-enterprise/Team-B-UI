@@ -7,51 +7,51 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 // components
-import HeaderComponent from "./components/Header";
-import FooterComponent from "./components/Footer";
-import ReimbursementListComponent from "./components/ReimbursementList";
+import Header from "./components/Header";
+import ReimbursementList from "./components/ReimbursementList";
 import NewReimbursementForm from "./components/NewReimbursementForm";
-import UserListComponent from "./components/UserListComponent";
-import CreateUserComponent from "./components/CreateUserComponent";
-import ActivateUserComponent from "./components/ActivateUserComponent";
-import DeleteUserComponent from "./components/DeleteUserComponent";
-import LoginComponent from "./components/LoginComponent";
+import UserList from "./components/UserList";
+import CreateUser from "./components/CreateUser";
+import ActivateUser from "./components/ActivateUser";
+import DeleteUser from "./components/DeleteUser";
+import Login from "./components/LoginForm";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
-        <HeaderComponent />
-        <Routes>
-          <Route
-            path="/reimbursements"
-            element={<ReimbursementListComponent />}
-          />
-          <Route
-            path="/reimbursements/create"
-            element={<NewReimbursementForm />}
-          />
-          <Route
-            path="/users"
-            element={<UserListComponent />}
-          />
-          <Route
-            path="/add-user"
-            element={<CreateUserComponent />}
-          />
-          <Route
-            path="/activate-user"
-            element={<ActivateUserComponent />}
-          />
-          <Route
-            path="/delete-user"
-            element={<DeleteUserComponent />}
-          />
-          <Route
-            path="/login"
-            element={<LoginComponent/>}
-          />
-        </Routes>
-        <FooterComponent />
+      <Header />
+      <Routes>
+        <Route
+          path="/reimbursements"
+          element={<ReimbursementList />}
+        />
+        <Route
+          path="/reimbursements/create"
+          element={<NewReimbursementForm />}
+        />
+        <Route
+          path="/users"
+          element={<UserList />}
+        />
+        <Route
+          path="/users/add"
+          element={<CreateUser />}
+        />
+        <Route
+          path="/users/activate"
+          element={<ActivateUser />}
+        />
+        <Route
+          path="/users/delete"
+          element={<DeleteUser />}
+        />
+        <Route
+          path="/login"
+          element={<Login />}
+        />
+      </Routes>
+      <Footer />
     </>
   );
 }

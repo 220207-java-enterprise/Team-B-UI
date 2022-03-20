@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {Link} from 'react-router-dom'
 import UserService from "../services/UserService";
 
-export const UserListComponent = () => {
+export const UserList = () => {
   
   const [users, setUsers] = useState([]);
 
@@ -20,9 +20,9 @@ export const UserListComponent = () => {
   return (
     <main className="container">
       <h2 className="text-center">List Users</h2>
-      <Link to = "/add-user" className="btn btn-primary mb-2">Create User</Link>
-      <Link to = "/activate-user" className="btn btn-primary mb-2">Activate User</Link>
-      <Link to = "/delete-user" className="btn btn-primary mb-2">Delete User</Link>
+      <Link to = "/users/add" className="btn btn-primary mb-2">Create User</Link>
+      <Link to = "/users/activate" className="btn btn-primary mb-2">Activate User</Link>
+      <Link to = "/users/delete" className="btn btn-primary mb-2">Delete User</Link>
       <table className="table table-bordered table-striped">
         <thead>
           <tr>
@@ -51,4 +51,4 @@ export const UserListComponent = () => {
   );
 };
 
-export default UserListComponent;
+export default UserList;
