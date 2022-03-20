@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import UserService from "../services/UserService";
 import { useNavigate } from 'react-router-dom';
 
-const CreateUserComponent = () => {
+const CreateUser = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -116,4 +116,4 @@ const CreateUserComponent = () => {
   );
 };
 
-export default CreateUserComponent;
+export default CreateUser;

@@ -1,30 +1,30 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import UserService from "../services/UserService";
 import { useNavigate } from 'react-router-dom';
 
-const ActivateUserComponent = () => {
-  const [id, setId] = useState("");
+const LoginForm = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate(); // The 'useHistory() hook' returns an object history'
 
   // TODO: figure out what type this is supposed to take
   const saveUser = (e:any) => {
     e.preventDefault();
-    const user = { id };
+    const user = { username, password };
     console.log(user);
-   UserService.activateUser(user).then(response=>{
+   UserService.login(user).then(response=>{
       console.log(response.data)
 
-      navigate('/users');
    }).catch(error=>{console.log(error)})
 
   };
   return (
-    <main id="activate-user">
+    <main id="login">
       <div className="container">
         <div className="row">
           <div className="card col-md-6 offset-md-3 offset-md-3">
-            <h2 className="text-center">Activate User</h2>
+            <h2 className="text-center">Login</h2>
             <div className="card-body">
               <form>
                 {/* <div className="form-group mb-2">
@@ -40,14 +40,26 @@ const ActivateUserComponent = () => {
                 </div> */}
 
                 <div className="form-group mb-2">
-                  <label className="form-label">Id :</label>
+                  <label className="form-label">Username :</label>
                   <input
                     type="text"
-                    placeholder="Id"
-                    name="Id"
+                    placeholder="Username"
+                    name="Username"
                     className="form-control"
-                    value={id}
-                    onChange={(e) => setId(e.target.value)}
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                  ></input>
+                </div>
+
+                <div className="form-group mb-2">
+                  <label className="form-label">Password :</label>
+                  <input
+                    type="text"
+                    placeholder="Password"
+                    name="Password"
+                    className="form-control"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   ></input>
                 </div>
               
@@ -64,4 +76,4 @@ const ActivateUserComponent = () => {
   );
 };
 
-export default ActivateUserComponent;
+export default LoginForm;

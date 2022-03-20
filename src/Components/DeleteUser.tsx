@@ -1,30 +1,30 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import UserService from "../services/UserService";
 import { useNavigate } from 'react-router-dom';
 
-const LoginComponent = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+const DeleteUser = () => {
+  const [id, setId] = useState("");
   const navigate = useNavigate(); // The 'useHistory() hook' returns an object history'
 
   // TODO: figure out what type this is supposed to take
   const saveUser = (e:any) => {
     e.preventDefault();
-    const user = { username, password };
+    const user = { id };
     console.log(user);
-   UserService.login(user).then(response=>{
+   UserService.deleteUser(user).then(response=>{
       console.log(response.data)
 
+      navigate('/users');
    }).catch(error=>{console.log(error)})
 
   };
   return (
-    <main id="login">
+    <main id="delete-user">
       <div className="container">
         <div className="row">
           <div className="card col-md-6 offset-md-3 offset-md-3">
-            <h2 className="text-center">Login</h2>
+            <h2 className="text-center">Delete User</h2>
             <div className="card-body">
               <form>
                 {/* <div className="form-group mb-2">
@@ -40,26 +40,14 @@ const LoginComponent = () => {
                 </div> */}
 
                 <div className="form-group mb-2">
-                  <label className="form-label">Username :</label>
+                  <label className="form-label">Id :</label>
                   <input
                     type="text"
-                    placeholder="Username"
-                    name="Username"
+                    placeholder="Id"
+                    name="Id"
                     className="form-control"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                  ></input>
-                </div>
-
-                <div className="form-group mb-2">
-                  <label className="form-label">Password :</label>
-                  <input
-                    type="text"
-                    placeholder="Password"
-                    name="Password"
-                    className="form-control"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={id}
+                    onChange={(e) => setId(e.target.value)}
                   ></input>
                 </div>
               
@@ -76,4 +64,4 @@ const LoginComponent = () => {
   );
 };
 
-export default LoginComponent;
+export default DeleteUser;

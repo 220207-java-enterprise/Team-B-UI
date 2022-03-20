@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import UserService from "../services/UserService";
 import { useNavigate } from 'react-router-dom';
 
-const DeleteUserComponent = () => {
+const ActivateUser = () => {
   const [id, setId] = useState("");
   const navigate = useNavigate(); // The 'useHistory() hook' returns an object history'
 
@@ -12,7 +12,7 @@ const DeleteUserComponent = () => {
     e.preventDefault();
     const user = { id };
     console.log(user);
-   UserService.deleteUser(user).then(response=>{
+   UserService.activateUser(user).then(response=>{
       console.log(response.data)
 
       navigate('/users');
@@ -20,11 +20,11 @@ const DeleteUserComponent = () => {
 
   };
   return (
-    <main id="delete-user">
+    <main id="activate-user">
       <div className="container">
         <div className="row">
           <div className="card col-md-6 offset-md-3 offset-md-3">
-            <h2 className="text-center">Delete User</h2>
+            <h2 className="text-center">Activate User</h2>
             <div className="card-body">
               <form>
                 {/* <div className="form-group mb-2">
@@ -64,4 +64,4 @@ const DeleteUserComponent = () => {
   );
 };
 
-export default DeleteUserComponent;
+export default ActivateUser;
