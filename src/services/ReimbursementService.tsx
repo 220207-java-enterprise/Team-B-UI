@@ -9,6 +9,7 @@ const Pending_REST_API_URL = "http://localhost:4001/ers/reimbs/statuses/pending"
 const Approved_REST_API_URL = "http://localhost:4001/ers/reimbs/statuses/approved"
 const Denied_REST_API_URL = "http://localhost:4001/ers/reimbs/statuses/denied"
 const MyReimbursements_REST_API_URL = "http://localhost:4001/ers/reimbs/author"
+const UpdateStatus_REST_API_URL = "http://localhost:4001/ers/reimbs/status"
 
 
 const ReimbursementService = {
@@ -120,6 +121,17 @@ const ReimbursementService = {
     }
     
     return axios.get(MyReimbursements_REST_API_URL, config);
+  },
+
+  updateStatus: (reimbursement: { reimb_id: string, statusName: string}) => {
+    const config = {
+      headers : {
+        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0MmFiZDE1Yi04ZThhLTQ3MzctODUyMy1lOTcyMjYwMzYwODUiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MTgzNTgsImV4cCI6MTY0NzgyMTk1OCwic3ViIjoiYmV0YXBzaWkiLCJyb2xlIjoiRklOQU5DRSBNQU5BR0VSIn0.2Jnnp3Kqy8a8t_lkxOOQtyZoPs3nZkI-FALWy3ihQ9Q"
+      },
+      validateStatus: () => true
+    }
+    
+    return axios.put(UpdateStatus_REST_API_URL, reimbursement, config)
   }
 }
 
