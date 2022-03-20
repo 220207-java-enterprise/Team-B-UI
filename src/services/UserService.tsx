@@ -34,8 +34,8 @@ const UserService = {
 
   deleteUser: (user: {id: string}) => {
     const config: AxiosRequestConfig = {
-      url: ACTIVATE_REST_API_URL,
-      method: 'PUT',
+      url: USERS_REST_API_URL,
+      method: 'DELETE',
       headers: {
         Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxYjJkZDcyNy1jN2E0LTRmYzAtOTBmYS0yMmUxMjJmODNhMjQiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MTM3MDksImV4cCI6MTY0NzgxNzMwOSwic3ViIjoiYWxwaGFvbWVnYSIsInJvbGUiOiJBRE1JTiJ9.qr7qxrXe0JmzNqIsGoCul4OlZttPmOai9-Jz-lgGeXU"
       },
