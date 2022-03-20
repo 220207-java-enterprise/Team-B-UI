@@ -23,6 +23,7 @@ import LodgingList from "./components/LodgingList";
 import TravelList from "./components/TravelList";
 import FoodList from "./components/FoodList";
 import OtherList from "./components/OtherList";
+import MyReimbursementList from "./components/MyReimbursementList";
 
 function App() {
   return (
@@ -84,6 +85,10 @@ function App() {
         <Route
           path="/reimbursements/other"
           element={<OtherList />}
+        />
+        <Route
+          path="/myreimbursements"
+          element={<MyReimbursementList />}
         />
       </Routes>
       <Footer />
