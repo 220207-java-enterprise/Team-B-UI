@@ -16,6 +16,13 @@ import ActivateUser from "./components/ActivateUser";
 import DeleteUser from "./components/DeleteUser";
 import Login from "./components/LoginForm";
 import Footer from "./components/Footer";
+import PendingList from "./components/PendingList";
+import ApprovedList from "./components/ApprovedList";
+import DeniedList from "./components/DeniedList";
+import LodgingList from "./components/LodgingList";
+import TravelList from "./components/TravelList";
+import FoodList from "./components/FoodList";
+import OtherList from "./components/OtherList";
 
 function App() {
   return (
@@ -49,6 +56,34 @@ function App() {
         <Route
           path="/login"
           element={<Login />}
+        />
+        <Route
+          path="/reimbursements/pending"
+          element={<PendingList />}
+        />
+        <Route
+          path="/reimbursements/approved"
+          element={<ApprovedList />}
+        />
+        <Route
+          path="/reimbursements/denied"
+          element={<DeniedList />}
+        />
+        <Route
+          path="/reimbursements/lodging"
+          element={<LodgingList />}
+        />
+        <Route
+          path="/reimbursements/travel"
+          element={<TravelList />}
+        />
+        <Route
+          path="/reimbursements/food"
+          element={<FoodList />}
+        />
+        <Route
+          path="/reimbursements/other"
+          element={<OtherList />}
         />
       </Routes>
       <Footer />
