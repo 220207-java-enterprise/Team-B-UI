@@ -18,15 +18,14 @@ export const UserList = () => {
   }, []);
 
   return (
-    <main className="container">
+    <main id="user-list" className="container-fluid">
       <h2 className="text-center">List Users</h2>
       <Link to = "/users/add" className="btn btn-primary mb-2">Create User</Link>
       <Link to = "/users/activate" className="btn btn-primary mb-2">Activate User</Link>
       <Link to = "/users/delete" className="btn btn-primary mb-2">Delete User</Link>
-      <table className="table table-bordered table-striped">
+      <table className="table table-bordered table-striped m-auto">
         <thead>
           <tr>
-            <td>User Id</td>
             <td>First Name</td>
             <td>Last Name</td>
             <td>Username</td>
@@ -37,8 +36,7 @@ export const UserList = () => {
         <tbody>
           {/* TODO assign type correctly */}
           {users.map((user:any) => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
+            <tr id={user.id} key={user.id}>
               <td>{user.firstName}</td>
               <td>{user.lastName}</td>
               <td>{user.username}</td>

@@ -8,10 +8,9 @@ header a {
 
 main {
   min-height: calc(100vh - 106px);
-  background-color: rgb(12, 11, 61);
 }
 
-#reimbursement-list table {
+#reimbursement-list table, #user-list table {
   width: 85%;
 }
 
