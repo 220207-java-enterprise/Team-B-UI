@@ -7,27 +7,27 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 // components
-import Header from "./components/Header";
-import ReimbursementList from "./components/ReimbursementList";
-import NewReimbursementForm from "./components/NewReimbursementForm";
-import UserList from "./components/UserList";
-import CreateUser from "./components/CreateUser";
-import ActivateUser from "./components/ActivateUser";
-import DeleteUser from "./components/DeleteUser";
-import LoginForm from "./components/LoginForm";
-import Footer from "./components/Footer";
-import PendingList from "./components/PendingList";
-import ApprovedList from "./components/ApprovedList";
-import DeniedList from "./components/DeniedList";
-import LodgingList from "./components/LodgingList";
-import TravelList from "./components/TravelList";
-import FoodList from "./components/FoodList";
-import OtherList from "./components/OtherList";
-import MyReimbursementList from "./components/MyReimbursementList";
-import UpdateStatus from "./components/UpdateStatus";
-import Update from "./components/Update";
-import Resolved from "./components/Resolved";
-import Home from "./components/Home";
+import Header from "./temp/Header";
+import ReimbursementList from "./temp/ReimbursementList";
+import NewReimbursementForm from "./temp/NewReimbursementForm";
+import UserList from "./temp/UserList";
+import CreateUser from "./temp/CreateUser";
+import ActivateUser from "./temp/ActivateUser";
+import DeleteUser from "./temp/DeleteUser";
+import LoginForm from "./temp/LoginForm";
+import Footer from "./temp/Footer";
+import PendingList from "./temp/PendingList";
+import ApprovedList from "./temp/ApprovedList";
+import DeniedList from "./temp/DeniedList";
+import LodgingList from "./temp/LodgingList";
+import TravelList from "./temp/TravelList";
+import FoodList from "./temp/FoodList";
+import OtherList from "./temp/OtherList";
+import MyReimbursementList from "./temp/MyReimbursementList";
+import UpdateStatus from "./temp/UpdateStatus";
+import Update from "./temp/Update";
+import Resolved from "./temp/Resolved";
+import Home from "./temp/Home";
 import { useCookies } from "react-cookie";
 
 function App() {
