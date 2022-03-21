@@ -26,10 +26,10 @@ export const UserList = () => {
       <table className="table table-bordered table-striped m-auto">
         <thead>
           <tr>
-            <td>First Name</td>
-            <td>Last Name</td>
-            <td>Username</td>
-            <td>Role</td>
+            <td className="white">First Name</td>
+            <td className="white">Last Name</td>
+            <td className="white">Username</td>
+            <td className="white">Role</td>
           </tr>
         </thead>
 
