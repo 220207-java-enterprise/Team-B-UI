@@ -46,7 +46,7 @@ function App() {
         
         <Route
           path="/reimbursements"
-          element={<ReimbursementList />}
+          element={<ReimbursementList token={(cookies.token as string)} />}
         />
         <Route
           path="/reimbursements/create"
