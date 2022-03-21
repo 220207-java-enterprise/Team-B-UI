@@ -11,13 +11,14 @@ const Denied_REST_API_URL = "http://localhost:4001/ers/reimbs/statuses/denied"
 const MyReimbursements_REST_API_URL = "http://localhost:4001/ers/reimbs/author"
 const UpdateStatus_REST_API_URL = "http://localhost:4001/ers/reimbs/status"
 const Update_REST_API_URL = "http://localhost:4001/ers/reimbs/employee"
+const Resolved_REST_API_URL = "http://localhost:4001/ers/reimbs/resolver"
 
 
 const ReimbursementService = {
   getReimbursements: () => {
     const config = {
       headers : {
-        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0MmFiZDE1Yi04ZThhLTQ3MzctODUyMy1lOTcyMjYwMzYwODUiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MTgzNTgsImV4cCI6MTY0NzgyMTk1OCwic3ViIjoiYmV0YXBzaWkiLCJyb2xlIjoiRklOQU5DRSBNQU5BR0VSIn0.2Jnnp3Kqy8a8t_lkxOOQtyZoPs3nZkI-FALWy3ihQ9Q"
+        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0MmFiZDE1Yi04ZThhLTQ3MzctODUyMy1lOTcyMjYwMzYwODUiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MjIwOTYsImV4cCI6MTY0NzgyNTY5Niwic3ViIjoiYmV0YXBzaWkiLCJyb2xlIjoiRklOQU5DRSBNQU5BR0VSIn0.DFa5RKa8TGjJ0ICEEArocsADC0CI6Ldc7Im7eaDdWeI"
       },
       validateStatus: () => true
     }
@@ -143,7 +144,18 @@ const ReimbursementService = {
     }
     
     return axios.put(Update_REST_API_URL, reimbursement, config)
+  },
+  getResolved: () => {
+    const config = {
+      headers : {
+        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0MmFiZDE1Yi04ZThhLTQ3MzctODUyMy1lOTcyMjYwMzYwODUiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MjIwOTYsImV4cCI6MTY0NzgyNTY5Niwic3ViIjoiYmV0YXBzaWkiLCJyb2xlIjoiRklOQU5DRSBNQU5BR0VSIn0.DFa5RKa8TGjJ0ICEEArocsADC0CI6Ldc7Im7eaDdWeI"
+      },
+      validateStatus: () => true
+    }
+    
+    return axios.get(Resolved_REST_API_URL, config);
   }
+
 }
 
 export default ReimbursementService;
