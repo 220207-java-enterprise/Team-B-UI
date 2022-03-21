@@ -31,9 +31,7 @@ import Home from "./components/Home";
 import { useCookies } from "react-cookie";
 
 function App() {
-  const [cookies] = useCookies();
-  console.log(cookies);
-  console.log('-------------')
+  const [cookies, setCookie] = useCookies();
   
   return (
     <>
@@ -41,12 +39,12 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Home />} 
+          element={<Home cookies={cookies} />} 
         />
         
         <Route
           path="/reimbursements"
-          element={<ReimbursementList token={(cookies.token as string)} />}
+          element={<ReimbursementList cookies={cookies} />}
         />
         <Route
           path="/reimbursements/create"
@@ -70,7 +68,7 @@ function App() {
         />
         <Route
           path="/login"
-          element={<LoginForm />}
+          element={<LoginForm setCookie={setCookie}/>}
         />
         <Route
           path="/reimbursements/pending"

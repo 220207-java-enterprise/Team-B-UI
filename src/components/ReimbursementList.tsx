@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
 import { Link } from 'react-router-dom';
+import AppCookies from "../interfaces/AppCookies";
 import ReimbursementService from "../services/ReimbursementService";
 
-export const ReimbursementList = (props: {token: string}) => {
-  
+export const ReimbursementList = (props: {cookies: AppCookies}) => {
+  const cookies = props.cookies;
   const [reimbursements, setReimbursements] = useState([]);
 
   useEffect(() => {
-    const token = props.token;
+    const token = (cookies.token as string);
+    const principal = cookies.principal;
     
-    console.log(token)
+    console.log(cookies);
     
     ReimbursementService.getReimbursements(token)
       .then((response) => {
@@ -24,7 +25,7 @@ export const ReimbursementList = (props: {token: string}) => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [cookies]);
 
   return (
     <main id="reimbursement-list" className="container-fluid">

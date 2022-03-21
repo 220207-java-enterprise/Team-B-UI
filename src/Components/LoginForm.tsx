@@ -2,13 +2,15 @@ import { useState } from "react";
 
 import UserService from "../services/UserService";
 import { useNavigate } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
+import { CookieSetOptions } from "universal-cookie";
 
-const LoginForm = () => {
+const LoginForm = (
+  props: {setCookie: (name: string, value: any, options?: CookieSetOptions | undefined) => void}
+) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   
-  const [, setCookie] = useCookies(['token']);
+  const setCookie = props.setCookie;
   const navigate = useNavigate(); // The 'useHistory() hook' returns an object history'
 
   // TODO: figure out what type this is supposed to take
@@ -19,10 +21,11 @@ const LoginForm = () => {
 
     UserService.login(user).then(response => {
       if (response.status === 200) {
-        console.log(response.headers.authorization)
+        console.log(response)
         setCookie('token', response.headers.authorization, {path: '/'});
+        setCookie('principal', response.data, {path: '/'});
+        // TODO: set navigation logic
         navigate('/');
-        // TODO: fix hard refresh persistence issue
       }
 
     }).catch(error=> console.log(error));
