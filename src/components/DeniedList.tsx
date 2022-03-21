@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import ReimbursementService from "../services/ReimbursementService";
 
-export const ReimbursementList = () => {
+export const ReimbursementList = (props: {token: string}) => {
   
   const [reimbursements, setReimbursements] = useState([]);
 
   useEffect(() => {
-    ReimbursementService.getDeniedReimbursements()
+    const token = props.token;
+
+    console.log(token)
+    ReimbursementService.getDeniedReimbursements(token)
       .then((response) => {
         console.log(response);
         
