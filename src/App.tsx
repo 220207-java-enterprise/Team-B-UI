@@ -72,31 +72,31 @@ function App() {
         />
         <Route
           path="/reimbursements/pending"
-          element={<PendingList />}
+          element={<PendingList token={(cookies.token as string) } />}
         />
         <Route
           path="/reimbursements/approved"
-          element={<ApprovedList />}
+          element={<ApprovedList token={(cookies.token as string) }/>}
         />
         <Route
           path="/reimbursements/denied"
-          element={<DeniedList />}
+          element={<DeniedList token={(cookies.token as string) }/>}
         />
         <Route
           path="/reimbursements/lodging"
-          element={<LodgingList />}
+          element={<LodgingList token={(cookies.token as string) }/>}
         />
         <Route
           path="/reimbursements/travel"
-          element={<TravelList />}
+          element={<TravelList token={(cookies.token as string) }/>}
         />
         <Route
           path="/reimbursements/food"
-          element={<FoodList />}
+          element={<FoodList token={(cookies.token as string) }/>}
         />
         <Route
           path="/reimbursements/other"
-          element={<OtherList />}
+          element={<OtherList token={(cookies.token as string) }/>}
         />
         <Route
           path="/myreimbursements"
