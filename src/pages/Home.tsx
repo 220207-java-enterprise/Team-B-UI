@@ -1,6 +1,6 @@
 import AppCookies from '../interfaces/AppCookies';
 
-import MyReimbursementList from '../components/MyReimbursementList';
+import MyReimbursementList from '../temp_components/MyReimbursementList';
 
 function Home(props: {cookies: AppCookies}) {
   const role = props.cookies.principal?.role;

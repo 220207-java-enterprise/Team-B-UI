@@ -7,27 +7,27 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 // components
-import Header from "./components/Header";
-import ReimbursementList from "./components/ReimbursementList";
-import NewReimbursementForm from "./components/NewReimbursementForm";
-import UserList from "./components/UserList";
-import CreateUser from "./components/CreateUser";
+import Header from "./temp_components/Header";
+import ReimbursementList from "./temp_components/ReimbursementList";
+import NewReimbursementForm from "./temp_components/NewReimbursementForm";
+import UserList from "./temp_components/UserList";
+import CreateUser from "./temp_components/CreateUser";
 import ActivateUser from "./temp_components/ActivateUser";
-import DeleteUser from "./components/DeleteUser";
-import LoginForm from "./components/LoginForm";
-import Footer from "./components/Footer";
-import PendingList from "./components/PendingList";
-import ApprovedList from "./components/ApprovedList";
-import DeniedList from "./components/DeniedList";
-import LodgingList from "./components/LodgingList";
-import TravelList from "./components/TravelList";
-import FoodList from "./components/FoodList";
-import OtherList from "./components/OtherList";
-import MyReimbursementList from "./components/MyReimbursementList";
-import UpdateStatus from "./components/UpdateStatus";
-import Update from "./components/Update";
-import Resolved from "./components/Resolved";
-import Home from "./components/Home";
+import DeleteUser from "./temp_components/DeleteUser";
+import LoginForm from "./temp_components/LoginForm";
+import Footer from "./temp_components/Footer";
+import PendingList from "./temp_components/PendingList";
+import ApprovedList from "./temp_components/ApprovedList";
+import DeniedList from "./temp_components/DeniedList";
+import LodgingList from "./temp_components/LodgingList";
+import TravelList from "./temp_components/TravelList";
+import FoodList from "./temp_components/FoodList";
+import OtherList from "./temp_components/OtherList";
+import MyReimbursementList from "./temp_components/MyReimbursementList";
+import UpdateStatus from "./temp_components/UpdateStatus";
+import Update from "./temp_components/Update";
+import Resolved from "./temp_components/Resolved";
+import Home from "./temp_components/Home";
 import { useCookies } from "react-cookie";
 
 function App() {
