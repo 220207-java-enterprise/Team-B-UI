@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import UserService from "../services/UserService";
 import { useNavigate } from 'react-router-dom';
 
-const ActivateUserComponent = () => {
+const ActivateUser = () => {
   const [id, setId] = useState("");
   const navigate = useNavigate(); // The 'useHistory() hook' returns an object history'
 
@@ -64,4 +64,4 @@ const ActivateUserComponent = () => {
   );
 };
 
-export default ActivateUserComponent;
+export default ActivateUser;

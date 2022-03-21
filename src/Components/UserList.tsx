@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {Link} from 'react-router-dom'
 import UserService from "../services/UserService";
 
-export const UserListComponent = () => {
+export const UserList = () => {
   
   const [users, setUsers] = useState([]);
 
@@ -18,15 +18,14 @@ export const UserListComponent = () => {
   }, []);
 
   return (
-    <main className="container-fluid">
-      <h2 className="whiteCenter">List Users</h2>
-      <Link to = "/add-user" className="btn btn-primary mb-2">Create User</Link>
-      <Link to = "/activate-user" className="btn btn-primary mb-2">Activate User</Link>
-      <Link to = "/delete-user" className="btn btn-primary mb-2">Delete User</Link>
-      <table className="table table-bordered table-striped">
+    <main id="user-list" className="container-fluid">
+      <h2 className="text-center">List Users</h2>
+      <Link to = "/users/add" className="btn btn-primary mb-2">Create User</Link>
+      <Link to = "/users/activate" className="btn btn-primary mb-2">Activate User</Link>
+      <Link to = "/users/delete" className="btn btn-primary mb-2">Delete User</Link>
+      <table className="table table-bordered table-striped m-auto">
         <thead>
           <tr>
-            <td className="white">User Id</td>
             <td className="white">First Name</td>
             <td className="white">Last Name</td>
             <td className="white">Username</td>
@@ -37,8 +36,7 @@ export const UserListComponent = () => {
         <tbody>
           {/* TODO assign type correctly */}
           {users.map((user:any) => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
+            <tr id={user.id} key={user.id}>
               <td>{user.firstName}</td>
               <td>{user.lastName}</td>
               <td>{user.username}</td>
@@ -51,4 +49,4 @@ export const UserListComponent = () => {
   );
 };
 
-export default UserListComponent;
+export default UserList;
