@@ -25,6 +25,7 @@ export const ReimbursementList = () => {
     <main id="reimbursement-list" className="container-fluid">
       <h2 className="text-center">List Reimbursements</h2>
       <Link to = "/reimbursements/create" className="btn btn-primary mb-2">Create Reimbursement</Link>
+      <Link to = "/myreimbursements/update" className="btn btn-primary mb-2">Update Reimbursement</Link>
       <table className="table table-bordered table-striped m-auto">
         <thead>
           <tr>
