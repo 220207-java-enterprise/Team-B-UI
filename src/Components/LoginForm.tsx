@@ -21,6 +21,8 @@ const LoginForm = () => {
       if (response.status === 200) {
         console.log(response.headers.authorization)
         setCookie('token', response.headers.authorization, {path: '/'});
+        navigate('/');
+        // TODO: fix hard refresh persistence issue
       }
 
     }).catch(error=> console.log(error));
