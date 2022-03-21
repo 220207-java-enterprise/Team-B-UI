@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
 import { Link } from 'react-router-dom';
 import ReimbursementService from "../services/ReimbursementService";
 
@@ -9,10 +8,9 @@ export const ReimbursementList = (props: {token: string}) => {
 
   useEffect(() => {
     const token = props.token;
-    
+
     console.log(token)
-    
-    ReimbursementService.getReimbursements(token)
+    ReimbursementService.getDeniedReimbursements(token)
       .then((response) => {
         console.log(response);
         
@@ -28,28 +26,18 @@ export const ReimbursementList = (props: {token: string}) => {
 
   return (
     <main id="reimbursement-list" className="container-fluid">
-      <h2 className="whiteCenter">List Reimbursements</h2>
+      <h2 className="text-center">List Reimbursements</h2>
       <Link to = "/reimbursements/create" className="btn btn-primary mb-2">Create Reimbursement</Link>
-      <Link to = "/reimbursements/pending" className="btn btn-primary mb-2">Pending</Link>
-      <Link to = "/reimbursements/approved" className="btn btn-primary mb-2">Approved</Link>
-      <Link to = "/reimbursements/denied" className="btn btn-primary mb-2">Denied</Link>
-      <Link to = "/reimbursements/lodging" className="btn btn-primary mb-2">Lodging</Link>
-      <Link to = "/reimbursements/travel" className="btn btn-primary mb-2">Travel</Link>
-      <Link to = "/reimbursements/food" className="btn btn-primary mb-2">Food</Link>
-      <Link to = "/reimbursements/other" className="btn btn-primary mb-2">Other</Link>
-      <Link to = "/reimbursements/status" className="btn btn-primary mb-2">Update Status</Link>
-      <Link to = "/reimbursements/resolved" className="btn btn-primary mb-2">Resolved</Link>
-
       <table className="table table-bordered table-striped m-auto">
         <thead>
           <tr>
-            <td className="white">Reimbursement Id</td>
-            <td className="white">Amount</td>
-            <td className="white">Description</td>
-            <td className="white">Author_Id</td>
-            <td className="white">Resolver_Id</td>
-            <td className="white">Status</td>
-            <td className="white">Type</td>
+            <td>Reimbursement Id</td>
+            <td>Amount</td>
+            <td>Description</td>
+            <td>Author_Id</td>
+            <td>Resolver_Id</td>
+            <td>Status</td>
+            <td>Type</td>
           </tr>
         </thead>
 

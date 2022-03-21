@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import AppCookies from "../interfaces/AppCookies";
 import ReimbursementService from "../services/ReimbursementService";
 
-export const ReimbursementList = () => {
-  
+export const ReimbursementList = (props: {cookies: AppCookies}) => {
+  const cookies = props.cookies;
   const [reimbursements, setReimbursements] = useState([]);
 
   useEffect(() => {
-    ReimbursementService.getLodgingReimbursements()
+    const token = (cookies.token as string);
+    const principal = cookies.principal;
+    
+    console.log(cookies);
+    
+    ReimbursementService.getReimbursements(token)
       .then((response) => {
         console.log(response);
         
@@ -19,22 +25,32 @@ export const ReimbursementList = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [cookies]);
 
   return (
     <main id="reimbursement-list" className="container-fluid">
-      <h2 className="text-center">List Reimbursements</h2>
+      <h2 className="whiteCenter">List Reimbursements</h2>
       <Link to = "/reimbursements/create" className="btn btn-primary mb-2">Create Reimbursement</Link>
+      <Link to = "/reimbursements/pending" className="btn btn-primary mb-2">Pending</Link>
+      <Link to = "/reimbursements/approved" className="btn btn-primary mb-2">Approved</Link>
+      <Link to = "/reimbursements/denied" className="btn btn-primary mb-2">Denied</Link>
+      <Link to = "/reimbursements/lodging" className="btn btn-primary mb-2">Lodging</Link>
+      <Link to = "/reimbursements/travel" className="btn btn-primary mb-2">Travel</Link>
+      <Link to = "/reimbursements/food" className="btn btn-primary mb-2">Food</Link>
+      <Link to = "/reimbursements/other" className="btn btn-primary mb-2">Other</Link>
+      <Link to = "/reimbursements/status" className="btn btn-primary mb-2">Update Status</Link>
+      <Link to = "/reimbursements/resolved" className="btn btn-primary mb-2">Resolved</Link>
+
       <table className="table table-bordered table-striped m-auto">
         <thead>
           <tr>
-            <td>Reimbursement Id</td>
-            <td>Amount</td>
-            <td>Description</td>
-            <td>Author_Id</td>
-            <td>Resolver_Id</td>
-            <td>Status</td>
-            <td>Type</td>
+            <td className="white">Reimbursement Id</td>
+            <td className="white">Amount</td>
+            <td className="white">Description</td>
+            <td className="white">Author_Id</td>
+            <td className="white">Resolver_Id</td>
+            <td className="white">Status</td>
+            <td className="white">Type</td>
           </tr>
         </thead>
 
