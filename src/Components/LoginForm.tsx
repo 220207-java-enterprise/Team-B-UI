@@ -13,12 +13,15 @@ const LoginForm = () => {
     e.preventDefault();
     const user = { username, password };
     console.log(user);
-   UserService.login(user).then(response=>{
-      console.log(response.data)
 
-   }).catch(error=>{console.log(error)})
+    UserService.login(user).then(response => {
+      if (response.status === 200) {
+        console.log(response.headers.authorization)
+      }
 
+    }).catch(error=> console.log(error));
   };
+
   return (
     <main id="login">
       <div className="container">

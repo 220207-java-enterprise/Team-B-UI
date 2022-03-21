@@ -14,7 +14,7 @@ import UserList from "./components/UserList";
 import CreateUser from "./components/CreateUser";
 import ActivateUser from "./components/ActivateUser";
 import DeleteUser from "./components/DeleteUser";
-import Login from "./components/LoginForm";
+import LoginForm from "./components/LoginForm";
 import Footer from "./components/Footer";
 import PendingList from "./components/PendingList";
 import ApprovedList from "./components/ApprovedList";
@@ -59,7 +59,7 @@ function App() {
         />
         <Route
           path="/login"
-          element={<Login />}
+          element={<LoginForm />}
         />
         <Route
           path="/reimbursements/pending"
