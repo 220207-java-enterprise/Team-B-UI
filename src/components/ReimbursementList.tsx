@@ -32,7 +32,7 @@ export const ReimbursementList = (props: {token: string}) => {
       <Link to = "/reimbursements/create" className="btn btn-primary mb-2">Create Reimbursement</Link>
       <Link to = "/reimbursements/pending" className="btn btn-primary mb-2">Pending</Link>
       <Link to = "/reimbursements/approved" className="btn btn-primary mb-2">Approved</Link>
-      <Link to = "/reimbursements/pending" className="btn btn-primary mb-2">Denied</Link>
+      <Link to = "/reimbursements/denied" className="btn btn-primary mb-2">Denied</Link>
       <Link to = "/reimbursements/lodging" className="btn btn-primary mb-2">Lodging</Link>
       <Link to = "/reimbursements/travel" className="btn btn-primary mb-2">Travel</Link>
       <Link to = "/reimbursements/food" className="btn btn-primary mb-2">Food</Link>

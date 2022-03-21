@@ -37,10 +37,10 @@ const ReimbursementService = {
     return axios.post(Reimbursements_REST_API_URL, reimbursement, config)
   },
 
-  getPendingReimbursements: () => {
+  getPendingReimbursements: (token: string) => {
     const config = {
       headers : {
-        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0MmFiZDE1Yi04ZThhLTQ3MzctODUyMy1lOTcyMjYwMzYwODUiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MTgzNTgsImV4cCI6MTY0NzgyMTk1OCwic3ViIjoiYmV0YXBzaWkiLCJyb2xlIjoiRklOQU5DRSBNQU5BR0VSIn0.2Jnnp3Kqy8a8t_lkxOOQtyZoPs3nZkI-FALWy3ihQ9Q"
+        Authorization: token
       },
       validateStatus: () => true
     }
@@ -48,10 +48,10 @@ const ReimbursementService = {
     return axios.get(Pending_REST_API_URL, config);
   },
 
-  getApprovedReimbursements: () => {
+  getApprovedReimbursements: (token: string) => {
     const config = {
       headers : {
-        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0MmFiZDE1Yi04ZThhLTQ3MzctODUyMy1lOTcyMjYwMzYwODUiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MTgzNTgsImV4cCI6MTY0NzgyMTk1OCwic3ViIjoiYmV0YXBzaWkiLCJyb2xlIjoiRklOQU5DRSBNQU5BR0VSIn0.2Jnnp3Kqy8a8t_lkxOOQtyZoPs3nZkI-FALWy3ihQ9Q"
+        Authorization: token
       },
       validateStatus: () => true
     }
@@ -59,10 +59,10 @@ const ReimbursementService = {
     return axios.get(Approved_REST_API_URL, config);
   },
 
-  getDeniedReimbursements: () => {
+  getDeniedReimbursements: (token: string) => {
     const config = {
       headers : {
-        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0MmFiZDE1Yi04ZThhLTQ3MzctODUyMy1lOTcyMjYwMzYwODUiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MTgzNTgsImV4cCI6MTY0NzgyMTk1OCwic3ViIjoiYmV0YXBzaWkiLCJyb2xlIjoiRklOQU5DRSBNQU5BR0VSIn0.2Jnnp3Kqy8a8t_lkxOOQtyZoPs3nZkI-FALWy3ihQ9Q"
+        Authorization: token
       },
       validateStatus: () => true
     }
@@ -70,10 +70,10 @@ const ReimbursementService = {
     return axios.get(Denied_REST_API_URL, config);
   },
 
-  getLodgingReimbursements: () => {
+  getLodgingReimbursements: (token: string) => {
     const config = {
       headers : {
-        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0MmFiZDE1Yi04ZThhLTQ3MzctODUyMy1lOTcyMjYwMzYwODUiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MTgzNTgsImV4cCI6MTY0NzgyMTk1OCwic3ViIjoiYmV0YXBzaWkiLCJyb2xlIjoiRklOQU5DRSBNQU5BR0VSIn0.2Jnnp3Kqy8a8t_lkxOOQtyZoPs3nZkI-FALWy3ihQ9Q"
+        Authorization: token
       },
       validateStatus: () => true
     }
@@ -81,10 +81,10 @@ const ReimbursementService = {
     return axios.get(Lodging_REST_API_URL, config);
   },
 
-  getTravelReimbursements: () => {
+  getTravelReimbursements: (token: string) => {
     const config = {
       headers : {
-        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0MmFiZDE1Yi04ZThhLTQ3MzctODUyMy1lOTcyMjYwMzYwODUiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MTgzNTgsImV4cCI6MTY0NzgyMTk1OCwic3ViIjoiYmV0YXBzaWkiLCJyb2xlIjoiRklOQU5DRSBNQU5BR0VSIn0.2Jnnp3Kqy8a8t_lkxOOQtyZoPs3nZkI-FALWy3ihQ9Q"
+        Authorization: token
       },
       validateStatus: () => true
     }
@@ -92,10 +92,10 @@ const ReimbursementService = {
     return axios.get(Travel_REST_API_URL, config);
   },
 
-  getFoodReimbursements: () => {
+  getFoodReimbursements: (token: string) => {
     const config = {
       headers : {
-        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0MmFiZDE1Yi04ZThhLTQ3MzctODUyMy1lOTcyMjYwMzYwODUiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MTgzNTgsImV4cCI6MTY0NzgyMTk1OCwic3ViIjoiYmV0YXBzaWkiLCJyb2xlIjoiRklOQU5DRSBNQU5BR0VSIn0.2Jnnp3Kqy8a8t_lkxOOQtyZoPs3nZkI-FALWy3ihQ9Q"
+        Authorization: token
       },
       validateStatus: () => true
     }
@@ -103,10 +103,10 @@ const ReimbursementService = {
     return axios.get(Food_REST_API_URL, config);
   },
 
-  getOtherReimbursements: () => {
+  getOtherReimbursements: (token: string) => {
     const config = {
       headers : {
-        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0MmFiZDE1Yi04ZThhLTQ3MzctODUyMy1lOTcyMjYwMzYwODUiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MTgzNTgsImV4cCI6MTY0NzgyMTk1OCwic3ViIjoiYmV0YXBzaWkiLCJyb2xlIjoiRklOQU5DRSBNQU5BR0VSIn0.2Jnnp3Kqy8a8t_lkxOOQtyZoPs3nZkI-FALWy3ihQ9Q"
+        Authorization: token
       },
       validateStatus: () => true
     }
