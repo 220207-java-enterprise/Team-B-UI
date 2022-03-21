@@ -8,7 +8,7 @@ const UserService = {
   getUsers: () => {
     const config = {
       headers: {
-        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxYjJkZDcyNy1jN2E0LTRmYzAtOTBmYS0yMmUxMjJmODNhMjQiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MTM3MDksImV4cCI6MTY0NzgxNzMwOSwic3ViIjoiYWxwaGFvbWVnYSIsInJvbGUiOiJBRE1JTiJ9.qr7qxrXe0JmzNqIsGoCul4OlZttPmOai9-Jz-lgGeXU"
+        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJkZjA4MTYxMC05NDU0LTQ2ZjgtYWJmYi00MTIxZTY4MTg1OGIiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4NzI2NTMsImV4cCI6MTY0Nzg3NjI1Mywic3ViIjoiYWlkYW5hbWF0byIsInJvbGUiOiJBRE1JTiJ9.GYk77ySQteDtszFQvDI1D2GhrkOy1yxjg2htjcwGNtY"
       },
       validateStatus: () => true
     };
@@ -34,8 +34,6 @@ const UserService = {
 
   deleteUser: (user: {id: string}) => {
     const config: AxiosRequestConfig = {
-      url: USERS_REST_API_URL,
-      method: 'DELETE',
       headers: {
         Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxYjJkZDcyNy1jN2E0LTRmYzAtOTBmYS0yMmUxMjJmODNhMjQiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MTM3MDksImV4cCI6MTY0NzgxNzMwOSwic3ViIjoiYWxwaGFvbWVnYSIsInJvbGUiOiJBRE1JTiJ9.qr7qxrXe0JmzNqIsGoCul4OlZttPmOai9-Jz-lgGeXU"
       },
@@ -43,7 +41,7 @@ const UserService = {
       validateStatus: () => true
     };
 
-    return axios(config);
+    return axios.delete(USERS_REST_API_URL, config);
   }
 }
 
