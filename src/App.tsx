@@ -12,7 +12,7 @@ import ReimbursementList from "./components/ReimbursementList";
 import NewReimbursementForm from "./components/NewReimbursementForm";
 import UserList from "./components/UserList";
 import CreateUser from "./components/CreateUser";
-import ActivateUser from "./components/ActivateUser";
+import ActivateUser from "./temp_components/ActivateUser";
 import DeleteUser from "./components/DeleteUser";
 import LoginForm from "./components/LoginForm";
 import Footer from "./components/Footer";
