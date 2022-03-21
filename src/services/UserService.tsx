@@ -20,7 +20,7 @@ const UserService = {
   },
 
   login: (user: {username: string, password: string}) => {
-    return axios.post(LOGIN_REST_API_URL, user)
+    return axios.post(LOGIN_REST_API_URL, user, {validateStatus: () => true})
   },
 
   activateUser: (user: {id: string}) => {

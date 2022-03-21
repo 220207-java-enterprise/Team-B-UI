@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 import { Link } from 'react-router-dom';
 import ReimbursementService from "../services/ReimbursementService";
 
@@ -7,7 +8,7 @@ export const ReimbursementList = () => {
   const [reimbursements, setReimbursements] = useState([]);
 
   useEffect(() => {
-    ReimbursementService.getReimbursements()
+    ReimbursementService.getReimbursements('asfjas;l')
       .then((response) => {
         console.log(response);
         

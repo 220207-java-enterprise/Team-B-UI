@@ -2,10 +2,13 @@ import { useState } from "react";
 
 import UserService from "../services/UserService";
 import { useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
+  const [, setCookie] = useCookies(['token']);
   const navigate = useNavigate(); // The 'useHistory() hook' returns an object history'
 
   // TODO: figure out what type this is supposed to take
@@ -13,12 +16,16 @@ const LoginForm = () => {
     e.preventDefault();
     const user = { username, password };
     console.log(user);
-   UserService.login(user).then(response=>{
-      console.log(response.data)
 
-   }).catch(error=>{console.log(error)})
+    UserService.login(user).then(response => {
+      if (response.status === 200) {
+        console.log(response.headers.authorization)
+        setCookie('token', response.headers.authorization, {path: '/'});
+      }
 
+    }).catch(error=> console.log(error));
   };
+
   return (
     <main id="login">
       <div className="container">

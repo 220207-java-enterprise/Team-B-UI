@@ -14,7 +14,7 @@ import UserList from "./components/UserList";
 import CreateUser from "./components/CreateUser";
 import ActivateUser from "./components/ActivateUser";
 import DeleteUser from "./components/DeleteUser";
-import Login from "./components/LoginForm";
+import LoginForm from "./components/LoginForm";
 import Footer from "./components/Footer";
 import PendingList from "./components/PendingList";
 import ApprovedList from "./components/ApprovedList";
@@ -27,12 +27,23 @@ import MyReimbursementList from "./components/MyReimbursementList";
 import UpdateStatus from "./components/UpdateStatus";
 import Update from "./components/Update";
 import Resolved from "./components/Resolved";
+import Home from "./components/Home";
+import { useCookies } from "react-cookie";
 
 function App() {
+  const [cookies] = useCookies();
+  console.log(cookies);
+  console.log('-------------')
+  
   return (
     <>
       <Header />
       <Routes>
+        <Route
+          path="/"
+          element={<Home />} 
+        />
+        
         <Route
           path="/reimbursements"
           element={<ReimbursementList />}
@@ -59,7 +70,7 @@ function App() {
         />
         <Route
           path="/login"
-          element={<Login />}
+          element={<LoginForm />}
         />
         <Route
           path="/reimbursements/pending"

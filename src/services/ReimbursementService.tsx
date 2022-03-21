@@ -15,10 +15,10 @@ const Resolved_REST_API_URL = "http://localhost:4001/ers/reimbs/resolver"
 
 
 const ReimbursementService = {
-  getReimbursements: () => {
+  getReimbursements: (token: string) => {
     const config = {
       headers : {
-        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0MmFiZDE1Yi04ZThhLTQ3MzctODUyMy1lOTcyMjYwMzYwODUiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MjIwOTYsImV4cCI6MTY0NzgyNTY5Niwic3ViIjoiYmV0YXBzaWkiLCJyb2xlIjoiRklOQU5DRSBNQU5BR0VSIn0.DFa5RKa8TGjJ0ICEEArocsADC0CI6Ldc7Im7eaDdWeI"
+        Authorization: token
       },
       validateStatus: () => true
     }
