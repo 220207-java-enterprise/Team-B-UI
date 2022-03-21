@@ -27,12 +27,23 @@ import MyReimbursementList from "./components/MyReimbursementList";
 import UpdateStatus from "./components/UpdateStatus";
 import Update from "./components/Update";
 import Resolved from "./components/Resolved";
+import Home from "./components/Home";
+import { useCookies } from "react-cookie";
 
 function App() {
+  const [cookies] = useCookies();
+  console.log(cookies);
+  console.log('-------------')
+  
   return (
     <>
       <Header />
       <Routes>
+        <Route
+          path="/"
+          element={<Home />} 
+        />
+        
         <Route
           path="/reimbursements"
           element={<ReimbursementList />}

@@ -35,7 +35,7 @@ export const UserList = () => {
 
         <tbody>
           {/* TODO assign type correctly */}
-          {users.map((user:any) => (
+          {users.length > 0 && users.map((user:any) => (
             <tr id={user.id} key={user.id}>
               <td>{user.firstName}</td>
               <td>{user.lastName}</td>
