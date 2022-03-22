@@ -2,23 +2,37 @@ import { SyntheticEvent, useState } from "react";
 
 import ReimbursementService from "../services/ReimbursementService";
 import { useNavigate } from 'react-router-dom';
+import AppCookies from "../interfaces/AppCookies";
+import { Cookies } from "react-cookie";
 
-const NewReimbursementForm = () => {
+const NewReimbursementForm = (props: {cookies: AppCookies}) => {
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
   const [type, setType] = useState("");
   const navigate = useNavigate();
 
+const cookies = props.cookies;
+const token = cookies.token as string;
+
+
+
+
+
+
+
   const saveReimbursement = (e: SyntheticEvent) => {
     e.preventDefault();
     const reimbursement = { amount, description, type };
     console.log(reimbursement);
+
+
    
-    ReimbursementService.createReimbursement(reimbursement)
+    ReimbursementService.createReimbursement(token,reimbursement)
       .then(response => {
         if (response.status === 200) {
           console.log(response.data);
-          navigate('/reimbursements');
+          navigate('/myreimbursements');
+       
         } else {
           console.log(response.status);
           if (response.data)
@@ -85,3 +99,7 @@ const NewReimbursementForm = () => {
 };
 
 export default NewReimbursementForm;
+function token(reimbursement: { amount: string; description: string; type: string; }, token: any) {
+  throw new Error("Function not implemented.");
+}
+
