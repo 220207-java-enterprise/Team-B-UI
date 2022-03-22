@@ -35,7 +35,7 @@ function App() {
   
   return (
     <>
-      <Header />
+      <Header cookies={cookies}/>
       <Routes>
         <Route
           path="/"

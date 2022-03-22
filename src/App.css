@@ -2,8 +2,12 @@ body {
   margin: 0;
 }
 
-header a {
-  margin-left: 15px;
+header nav {
+  padding-left: 16px;
+}
+
+header p {
+  cursor: pointer;
 }
 
 main {
