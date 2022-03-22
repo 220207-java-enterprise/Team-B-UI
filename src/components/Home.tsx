@@ -13,13 +13,21 @@ const Home = (props: {cookies: AppCookies}) => {
   
   switch (role) {
     case "EMPLOYEE":
-      return (<h1>Employee</h1>)
+      return (<main>
+                <h1>Employee</h1>
+              </main>)
     case "FINANCE MANAGER":
-      return (<h1>Finance Manager</h1>)
+      return (<main>
+                <h1>Finance Manager</h1>
+              </main>)
     case "ADMIN":
-      return (<h1>Admin</h1>)
+      return (<main>
+                <h1>Admin</h1>
+              </main>)
     default:
-      return (<h1>Not Logged In</h1>)
+      return (<main>
+                <h1>Not Logged In</h1>
+              </main>)
   }
 }
 

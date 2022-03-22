@@ -42,3 +42,8 @@ footer {
 .white {
   color: white;
 }
+
+.right {
+  text-align: right;
+  color: green;
+}

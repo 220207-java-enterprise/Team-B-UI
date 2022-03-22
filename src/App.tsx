@@ -30,12 +30,14 @@ import Resolved from "./components/Resolved";
 import Home from "./components/Home";
 import { useCookies } from "react-cookie";
 
+// const mainHeader = classNames('')
+
 function App() {
   const [cookies, setCookie] = useCookies();
   
   return (
     <>
-      <Header />
+      <Header cookies={cookies} />
       <Routes>
         <Route
           path="/"
@@ -55,7 +57,7 @@ function App() {
           element={<UserList />}
         />
         <Route
-          path="/users/add"
+          path="/signup"
           element={<CreateUser />}
         />
         <Route
