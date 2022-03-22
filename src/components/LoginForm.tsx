@@ -11,6 +11,7 @@ const LoginForm = (
   const [password, setPassword] = useState("");
   
   const setCookie = props.setCookie;
+  
   const navigate = useNavigate(); // The 'useHistory() hook' returns an object history'
 
   // TODO: figure out what type this is supposed to take
@@ -25,7 +26,8 @@ const LoginForm = (
         setCookie('token', response.headers.authorization, {path: '/'});
         setCookie('principal', response.data, {path: '/'});
         // TODO: set navigation logic
-        navigate('/');
+        
+       navigate('/');
       }
 
     }).catch(error=> console.log(error));
@@ -80,10 +82,14 @@ const LoginForm = (
                   onClick={(e) => saveUser(e)}
                 >Submit</button>
               </form>
+              
             </div>
           </div>
         </div>
       </div>
+   
+   
+
     </main>
   );
 };

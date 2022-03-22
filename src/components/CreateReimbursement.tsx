@@ -2,8 +2,9 @@ import { SyntheticEvent, useState } from "react";
 
 import ReimbursementService from "../services/ReimbursementService";
 import { useNavigate } from 'react-router-dom';
+import AppCookies from "../interfaces/AppCookies";
 
-const NewReimbursementForm = () => {
+const NewReimbursementForm = (props: { cookies: AppCookies }) => {
 
   const [id, setId] = useState("");
   const [amount, setAmount] = useState("");
@@ -11,12 +12,15 @@ const NewReimbursementForm = () => {
   const [type, setType] = useState("");
   const navigate = useNavigate();
 
+  const cookies = props.cookies;
+  const token = cookies.token as string;
+
   const saveReimbursement = (e: SyntheticEvent) => {
     e.preventDefault();
     const reimbursement = { id, amount, description, type };
     console.log(reimbursement);
    
-    ReimbursementService.update(reimbursement)
+    ReimbursementService.update(token,reimbursement)
       .then(response => {
         if (response.status === 200) {
           console.log(response.data);
