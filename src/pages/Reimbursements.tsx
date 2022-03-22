@@ -9,7 +9,7 @@ function Reimbursements(props: {cookies: AppCookies}) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (role !== ("FINANCE MANAGER" && "EMPLOYEE")) { 
+    if (role !== "FINANCE MANAGER" && role !== "EMPLOYEE") { 
       navigate('/');
     }
   }, [role, navigate]);
