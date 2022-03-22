@@ -13,7 +13,7 @@ export const ReimbursementList = (props: {cookies: AppCookies}) => {
     const principal = cookies.principal;
     
     console.log(cookies);
-    ReimbursementService.getMyReimbursements("getMyReimbursements() will be conditionally called inside a single ReimbursementList and this component won't be necessary")
+    ReimbursementService.getMyReimbursements(token)
       .then((response) => {
         console.log(response);
         
