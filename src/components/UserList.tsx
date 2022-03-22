@@ -1,13 +1,20 @@
 import { useEffect, useState } from "react";
 import {Link} from 'react-router-dom'
+import AppCookies from "../interfaces/AppCookies";
 import UserService from "../services/UserService";
 
-export const UserList = () => {
-  
+export const UserList = (props: {cookies: AppCookies}) => {
+  const cookies = props.cookies;
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    UserService.getUsers()
+    const token = (cookies.token as string);
+    const principal = cookies.principal;
+    
+    console.log(cookies);
+    
+    console.log(token)
+    UserService.getUsers(token)
       .then((response) => {
         setUsers(response.data);
         console.log(response.data);
