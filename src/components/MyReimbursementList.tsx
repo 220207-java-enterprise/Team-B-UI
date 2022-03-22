@@ -7,7 +7,7 @@ export const ReimbursementList = () => {
   const [reimbursements, setReimbursements] = useState([]);
 
   useEffect(() => {
-    ReimbursementService.getMyReimbursements()
+    ReimbursementService.getMyReimbursements("asdasf")
       .then((response) => {
         console.log(response);
         

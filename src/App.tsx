@@ -5,27 +5,14 @@ import "./App.css";
 
 // components
 import Header from "./components/Header";
-import ReimbursementList from "./components/ReimbursementList";
-import NewReimbursementForm from "./components/NewReimbursementForm";
-import UserList from "./components/UserList";
-import CreateUser from "./components/CreateUser";
-import ActivateUser from "./components/ActivateUser";
-import DeleteUser from "./components/DeleteUser";
-import LoginForm from "./components/LoginForm";
 import Footer from "./components/Footer";
-import PendingList from "./components/PendingList";
-import ApprovedList from "./components/ApprovedList";
-import DeniedList from "./components/DeniedList";
-import LodgingList from "./components/LodgingList";
-import TravelList from "./components/TravelList";
-import FoodList from "./components/FoodList";
-import OtherList from "./components/OtherList";
-import MyReimbursementList from "./components/MyReimbursementList";
-import UpdateStatus from "./components/UpdateStatus";
-import Update from "./components/Update";
-import Resolved from "./components/Resolved";
-import Home from "./components/Home";
+
+// pages
+import Home from "./pages/Home";
+
 import { useCookies } from "react-cookie";
+import Reimbursements from "./pages/Reimbursements";
+import Login from "./pages/Login";
 
 function App() {
   const [cookies, setCookie] = useCookies();
@@ -35,6 +22,12 @@ function App() {
       <Header cookies={cookies} />
       <Routes>
         <Route path="/" element={<Home cookies={cookies} />} />
+        <Route path="/login" element={<Login setCookie={setCookie} />} />
+        <Route path="/reimbursements" element={<Reimbursements cookies={cookies} />} />
+        
+        
+        
+        {/* <Route path="/" element={<Home cookies={cookies} />} />
 
         <Route
           path="/reimbursements"
@@ -88,7 +81,7 @@ function App() {
 
         <Route path="/reimbursements/status" element={<UpdateStatus />} />
 
-        <Route path="/reimbursements/resolved" element={<Resolved />} />
+        <Route path="/reimbursements/resolved" element={<Resolved />} /> */}
       </Routes>
       <Footer />
     </>
