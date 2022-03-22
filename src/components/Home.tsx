@@ -1,26 +1,25 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 import AppCookies from '../interfaces/AppCookies';
-import MyReimbursementList from "./MyReimbursementList";
-import ReimbursementList from "./ReimbursementList";
 
-function Home(props: { cookies: AppCookies }) {
-  const role = props.cookies.principal?.role;
-  let cookies = props.cookies;
-  const token = cookies.token as string;
-  const navigate = useNavigate();
+const Home = (props: {cookies: AppCookies}) => {
+  const cookies = props.cookies;
+  const role = cookies.principal?.role;
 
+  useEffect(() => {
+    console.log(cookies);
+  }, [cookies]);
+  
+  
   switch (role) {
     case "EMPLOYEE":
-      <h1>so what ?????/</h1>
-      return <MyReimbursementList cookies={cookies} />;
+      return (<h1>Employee</h1>)
     case "FINANCE MANAGER":
-      return <ReimbursementList cookies={cookies} />;
+      return (<h1>Finance Manager</h1>)
     case "ADMIN":
-      return <h1>Adminosaaaaaaaaaarus</h1>;
+      return (<h1>Admin</h1>)
     default:
-      return <h1>Not Logged In</h1>;
+      return (<h1>Not Logged In</h1>)
   }
 }
 

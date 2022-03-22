@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import AppCookies from "../interfaces/AppCookies";
 
-import MyReimbursementList from "../temp_components/MyReimbursementList";
-import ReimbursementList from "../temp_components/ReimbursementList";
+import MyReimbursementList from '../components/MyReimbursementList';
 
 function Home(props: { cookies: AppCookies }) {
   const role = props.cookies.principal?.role;
