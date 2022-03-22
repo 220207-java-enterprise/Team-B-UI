@@ -5,10 +5,10 @@ const ACTIVATE_REST_API_URL = "http://localhost:4001/ers/users/approve";
 const LOGIN_REST_API_URL = "http://localhost:4001/ers/users/login";
 
 const UserService = {
-  getUsers: () => {
+  getUsers: (token: string) => {
     const config = {
       headers: {
-        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJkZjA4MTYxMC05NDU0LTQ2ZjgtYWJmYi00MTIxZTY4MTg1OGIiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4NzI2NTMsImV4cCI6MTY0Nzg3NjI1Mywic3ViIjoiYWlkYW5hbWF0byIsInJvbGUiOiJBRE1JTiJ9.GYk77ySQteDtszFQvDI1D2GhrkOy1yxjg2htjcwGNtY"
+        Authorization: token
       },
       validateStatus: () => true
     };

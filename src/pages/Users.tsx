@@ -13,7 +13,7 @@ function Users(props: { cookies: AppCookies }) {
       navigate('/');
   }, [role, navigate]);
 
-  return (<UserList />);
+  return (<UserList cookies={props.cookies}/>);
 }
 
 export default Users;
