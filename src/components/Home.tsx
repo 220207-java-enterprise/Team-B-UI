@@ -1,7 +1,3 @@
-import { useEffect } from "react";
-
-import AppCookies from '../interfaces/AppCookies';
-
 const Home = () => {
   return (
     <main id="home">

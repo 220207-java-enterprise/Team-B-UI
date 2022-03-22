@@ -2,10 +2,6 @@ body {
   margin: 0;
 }
 
-header nav {
-  padding-left: 16px;
-}
-
 header p {
   cursor: pointer;
 }

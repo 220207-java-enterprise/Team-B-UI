@@ -1,7 +1,7 @@
+import CreateUser from "../components/CreateUser";
+
 function Signup() {
-  return (
-    <div></div>
-  )
+  return (<CreateUser />)
 }
 
 export default Signup;

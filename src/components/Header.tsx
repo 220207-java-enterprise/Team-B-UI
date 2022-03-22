@@ -6,7 +6,7 @@ const Header = (props: {cookies: AppCookies}) => {
   return (
     <header>
       <nav className='navbar navbar-expand navbar-dark bg-dark justify-content-between'>
-        <a href="/" className='navbar-brand ml-2'>
+        <a href="/" className='navbar-brand ms-3'>
           Employee Reimbursement System
         </a>
         <div>
