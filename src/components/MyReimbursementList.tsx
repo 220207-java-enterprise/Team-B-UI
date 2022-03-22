@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import AppCookies from "../interfaces/AppCookies";
 import ReimbursementService from "../services/ReimbursementService";
 
-export const ReimbursementList = () => {
+export const ReimbursementList = (props: {cookies: AppCookies}) => {
   
+  const cookies = props.cookies;
   const [reimbursements, setReimbursements] = useState([]);
 
   useEffect(() => {
+    const token = (cookies.token as string);
+    const principal = cookies.principal;
+    
+    console.log(cookies);
     ReimbursementService.getMyReimbursements("getMyReimbursements() will be conditionally called inside a single ReimbursementList and this component won't be necessary")
       .then((response) => {
         console.log(response);
