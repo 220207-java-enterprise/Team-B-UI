@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ReimbursementList from "../components/ReimbursementList";
 import AppCookies from '../interfaces/AppCookies';
@@ -7,12 +8,13 @@ function Reimbursements(props: {cookies: AppCookies}) {
 
   const navigate = useNavigate();
 
-  if (role !== ("FINANCE MANAGER" || "EMPLOYEE"))
-    navigate('/');
-  else
-    return (<ReimbursementList cookies={props.cookies}/>)
-  
-  return (<></>)
+  useEffect(() => {
+    if (role !== ("FINANCE MANAGER" && "EMPLOYEE")) { 
+      navigate('/');
+    }
+  }, [role, navigate]);
+
+  return (<ReimbursementList cookies={props.cookies}/>)
 }
 
 export default Reimbursements;

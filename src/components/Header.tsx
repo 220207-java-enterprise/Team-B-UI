@@ -1,7 +1,23 @@
+import { CookieSetOptions } from 'universal-cookie';
 import AppCookies from '../interfaces/AppCookies'
 
-const Header = (props: {cookies: AppCookies}) => {
+import { useNavigate } from 'react-router-dom';
+
+const Header = (props: 
+  {
+    cookies: AppCookies, 
+    destroyCookie: (name: string, options?: CookieSetOptions | undefined) => void
+  }
+) => {
   const token = props.cookies.token;
+
+  const navigate = useNavigate();
+
+  const logout = () => {
+    props.destroyCookie('token', {path: '/'});
+    props.destroyCookie('principal', {path: '/'});
+    navigate('/');
+  }
   
   return (
     <header>
@@ -21,7 +37,7 @@ const Header = (props: {cookies: AppCookies}) => {
           </>
           )}
           {token && (
-          <p className='navbar-brand my-0'>
+          <p className='navbar-brand my-0' onClick={logout}>
             Logout
           </p>
           )}

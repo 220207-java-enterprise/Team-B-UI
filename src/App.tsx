@@ -17,11 +17,11 @@ import Reimbursements from "./pages/Reimbursements";
 import { useCookies } from "react-cookie";
 
 function App() {
-  const [cookies, setCookie] = useCookies();
+  const [cookies, setCookie, destroyCookie] = useCookies();
 
   return (
     <>
-      <Header cookies={cookies} />
+      <Header cookies={cookies} destroyCookie={destroyCookie}/>
       <Routes>
         <Route path="/" element={<Home cookies={cookies} />} />
         <Route path="/login" element={<Login setCookie={setCookie} />} />
