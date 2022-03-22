@@ -1,8 +1,9 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import AppCookies from "../interfaces/AppCookies";
 
-import MyReimbursementList from "../temp_components/MyReimbursementList";
-import ReimbursementList from "../temp_components/ReimbursementList";
+import AppCookies from '../interfaces/AppCookies';
+import MyReimbursementList from "./MyReimbursementList";
+import ReimbursementList from "./ReimbursementList";
 
 function Home(props: { cookies: AppCookies }) {
   const role = props.cookies.principal?.role;
@@ -24,3 +25,4 @@ function Home(props: { cookies: AppCookies }) {
 }
 
 export default Home;
+
