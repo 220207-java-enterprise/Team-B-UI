@@ -7,7 +7,7 @@ export const ReimbursementList = () => {
   const [reimbursements, setReimbursements] = useState([]);
 
   useEffect(() => {
-    ReimbursementService.getMyReimbursements("asdasf")
+    ReimbursementService.getMyReimbursements("getMyReimbursements() will be conditionally called inside a single ReimbursementList and this component won't be necessary")
       .then((response) => {
         console.log(response);
         

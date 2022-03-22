@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import UserList from "../components/UserList";
 import AppCookies from '../interfaces/AppCookies';
@@ -7,12 +8,12 @@ function Users(props: { cookies: AppCookies }) {
 
   const navigate = useNavigate();
 
-  if (role !== "ADMIN")
-    navigate('/');
-  else
-    return (<UserList />);
+  useEffect(() => {
+    if (role !== "ADMIN")
+      navigate('/');
+  }, [role, navigate]);
 
-  return (<></>);
+  return (<UserList />);
 }
 
 export default Users;
