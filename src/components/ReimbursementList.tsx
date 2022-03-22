@@ -26,7 +26,7 @@ export const ReimbursementList = (props: {cookies: AppCookies}) => {
         console.log(error);
       });
   }, [cookies]);
-
+  
   return (
     <main id="reimbursement-list" className="container-fluid">
       <h2 className="whiteCenter">List Reimbursements</h2>

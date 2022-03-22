@@ -2,12 +2,23 @@ body {
   margin: 0;
 }
 
-header a {
-  margin-left: 15px;
+header p {
+  cursor: pointer;
 }
 
 main {
   min-height: calc(100vh - 106px);
+}
+
+#home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#home h1 {
+  margin-bottom: 5em;
 }
 
 #reimbursement-list table, #user-list table {
