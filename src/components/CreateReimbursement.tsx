@@ -6,7 +6,6 @@ import AppCookies from "../interfaces/AppCookies";
 
 const NewReimbursementForm = (props: { cookies: AppCookies }) => {
 
-  const [id, setId] = useState("");
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
   const [type, setType] = useState("");
@@ -17,14 +16,14 @@ const NewReimbursementForm = (props: { cookies: AppCookies }) => {
 
   const saveReimbursement = (e: SyntheticEvent) => {
     e.preventDefault();
-    const reimbursement = { id, amount, description, type };
+    const reimbursement = {amount, description, type };
     console.log(reimbursement);
    
-    ReimbursementService.update(token,reimbursement)
+    ReimbursementService.createReimbursement(token,reimbursement)
       .then(response => {
         if (response.status === 200) {
           console.log(response.data);
-          navigate('/myreimbursements');
+          navigate('/reimbursements');
         } else {
           console.log(response.status);
           if (response.data)
@@ -38,25 +37,15 @@ const NewReimbursementForm = (props: { cookies: AppCookies }) => {
       <div className="container">
         <div className="row">
           <div className="card col-md-6 offset-md-3 offset-md-3">
-            <h2 className="text-center">Update Reimbursement</h2>
+            <h2 className="text-center">Create Reimbursement</h2>
             <div className="card-body">
               <form>
-              <div className="form-group mb-2">
-                  <label className="form-label">Id :</label>
-                  <input
-                    type="text"
-                    placeholder="Id"
-                    name="Id"
-                    className="form-control"
-                    value={id}
-                    onChange={(e) => setId(e.target.value)}
-                  ></input>
-                </div>
 
                 <div className="form-group mb-2">
                   <label className="form-label">Amount :</label>
                   <input
-                    type="text"
+                    max={999}
+                    type="number"
                     placeholder="Amount"
                     name="Amount"
                     className="form-control"
@@ -67,26 +56,29 @@ const NewReimbursementForm = (props: { cookies: AppCookies }) => {
 
                 <div className="form-group mb-2">
                   <label className="form-label">Description :</label>
-                  <input
-                    type="text"
+                  <textarea
+                    rows={4}
+                    maxLength={200}
                     placeholder="Description"
                     name="Description"
                     className="form-control"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                  ></input>
+                  ></textarea>
                 </div>
 
                 <div className="form-group mb-2">
                   <label className="form-label">Type :</label>
-                  <input
-                    type="text"
-                    placeholder="Type"
+                  <select
                     name="Type"
                     className="form-control"
                     value={type}
-                    onChange={(e) => setType(e.target.value)}
-                  ></input>
+                    onChange={(e) => setType(e.target.value)}>
+                    <option value="Lodging">Lodging</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Food">Food</option>
+                    <option value="Other">Other</option>
+                  </select>
                 </div>
               
                 <button

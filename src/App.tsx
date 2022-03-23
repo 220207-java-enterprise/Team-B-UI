@@ -7,6 +7,7 @@ import "./App.css";
 // components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import NewReimbursementForm from "./components/CreateReimbursement";
 
 // pages
 import Home from "./pages/Home";
@@ -29,6 +30,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/users" element={<Users cookies={cookies} />} />
         <Route path="/reimbursements" element={<Reimbursements cookies={cookies} />} />
+        <Route path="/reimbursements/create" element={<NewReimbursementForm cookies={cookies} />} />
       </Routes>
       <Footer />
     </>

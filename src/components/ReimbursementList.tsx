@@ -11,9 +11,12 @@ export const ReimbursementList = (props: {cookies: AppCookies}) => {
 
   const [reimbursements, setReimbursements] = useState([]);
   const [selectIndex, setSelectIndex] = useState(0);
+  const [tableNavStyle, setStyle] = useState("");
 
   useEffect(() => {
     if (role === "FINANCE MANAGER") {
+      setStyle("table-elements-fm");
+
       ReimbursementService.getReimbursements(token)
         .then((response) => {
           console.log(response);
@@ -31,6 +34,8 @@ export const ReimbursementList = (props: {cookies: AppCookies}) => {
     }
 
     if (role === "EMPLOYEE") {
+      setStyle("table-elements-emp");
+
       ReimbursementService.getMyReimbursements(token)
         .then((response) => {
           console.log(response);
@@ -179,7 +184,11 @@ export const ReimbursementList = (props: {cookies: AppCookies}) => {
     <main id="reimbursement-list" className="container-fluid">
       <h2 className="whiteCenter">List Reimbursements</h2>
       
-      <div className="table-elements">
+      <div className={tableNavStyle}>
+
+        {role === "EMPLOYEE" && <a href= "/reimbursements/create" className="btn btn-secondary">Create Reimbursement</a>}
+
+        {role === "FINANCE MANAGER" && 
         <select id = "dropdown_list" className="btn btn-secondary dropdown-toggle" onChange = {(e) => setSelectIndex(e.target.selectedIndex)}>
           <option selected value="Filter by:">Filter by:</option>
           <option value="All">All</option>
@@ -190,7 +199,7 @@ export const ReimbursementList = (props: {cookies: AppCookies}) => {
           <option value="Type: TRAVEL">Type: TRAVEL</option>
           <option value="Type: FOOD">Type: FOOD</option>
           <option value="Type: OTHER">Type: OTHER</option>
-        </select>
+        </select>}
       </div>
 
       
@@ -214,7 +223,7 @@ export const ReimbursementList = (props: {cookies: AppCookies}) => {
             <tr id={reimbursement.id} key={reimbursement.id}>
               {/* @ts-ignore */}
               <td>{reimbursements.indexOf(reimbursement) + 1}</td>
-              <td>{"$" +reimbursement.amount}</td>
+              <td>{"$" +parseFloat(reimbursement.amount).toFixed(2)}</td>
               <td>{reimbursement.description}</td>
               <td>{reimbursement.author_id}</td>
               <td>{reimbursement.resolver_id}</td>

@@ -89,10 +89,20 @@ main {
   margin-bottom: 20px;
 }
 
-#reimbursement-list .table-elements {
+#reimbursement-list .table-elements-emp {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  width: 85%;
+  margin: 0 auto 15px;
+}
+
+#reimbursement-list .table-elements-fm {
   display: flex;
   justify-content: flex-end;
-  padding: 0 7% 20px 0;
+  padding-top: 20px;
+  width: 85%;
+  margin: 0 auto 15px;
 }
 
 #reimbursement-list thead {
@@ -106,9 +116,14 @@ main {
 }
 
 #new-reimbursement .card {
-  margin-bottom: 22vh;
-  padding: 10px;
-  background-color: green;
+  margin-bottom: 30em;
+  padding: 10px 0;
+  background-color: #F3F1F5;
+  box-shadow: -5px 4px 3px #b6b8be;
+}
+
+#new-reimbursement button {
+  background-color: #1597E5;
 }
 
 footer {

@@ -12,7 +12,7 @@ const NewReimbursementForm = () => {
     e.preventDefault();
     const reimbursement = { reimb_id, statusName };
     console.log(reimbursement);
-   
+
     ReimbursementService.updateStatus(reimbursement)
       .then(response => {
         if (response.status === 200) {
