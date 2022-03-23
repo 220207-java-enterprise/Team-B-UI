@@ -58,11 +58,6 @@ export const ReimbursementList = (props: {cookies: AppCookies}) => {
           <option value="Type: FOOD">Type: FOOD</option>
           <option value="Type: OTHER">Type: OTHER</option>
         </select>
-        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a className="dropdown-item" href="#">Action</a></li>
-          <li><a className="dropdown-item" href="#">Another action</a></li>
-          <li><a className="dropdown-item" href="#">Something else here</a></li>
-        </ul>
       </div>
       
       <table className="table table-bordered table-striped m-auto">
