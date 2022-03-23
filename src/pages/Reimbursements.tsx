@@ -16,13 +16,7 @@ function Reimbursements(props: {cookies: AppCookies}) {
     
   }, [role, navigate]);
 
-  if (role === "EMPLOYEE"){
-    return (<MyReimbursementList cookies={props.cookies}/>)
-  }
-  else {
     return (<ReimbursementList cookies={props.cookies}/>)
-  }
-
 }
 
 export default Reimbursements;
