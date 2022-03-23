@@ -68,7 +68,7 @@ const LoginForm = (
                 <div className="form-group mb-2">
                   <label className="form-label">Password :</label>
                   <input
-                    type="text"
+                    type="password"
                     placeholder="Password"
                     name="Password"
                     className="form-control"

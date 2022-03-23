@@ -12,13 +12,9 @@ function Home(props: { cookies: AppCookies }) {
   useEffect(() => {
     switch (role) {
       case ("EMPLOYEE"):
-        navigate('/reimbursements');
-        break;
-
       case ("FINANCE MANAGER"):
         navigate('/reimbursements');
         break;
-
       case "ADMIN":
         navigate('/users');
         break;
