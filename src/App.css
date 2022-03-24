@@ -114,6 +114,12 @@ main {
   color: whitesmoke;
 }
 
+#reimbursement-list tbody select {
+  appearance: none;
+  background-color: inherit;
+  border: none;
+}
+
 #new-reimbursement {
   display: flex;
   align-items: center;
