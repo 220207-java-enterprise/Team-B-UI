@@ -126,6 +126,27 @@ main {
   background-color: #1597E5;
 }
 
+td:nth-of-type(4) {
+
+  display: none;
+  
+  }
+
+table.thead.tr.td:first-child { display: none; }
+
+#update-form .card{
+  position: fixed;
+  z-index: 4;
+  top:20%;
+  left: 0%;
+  
+
+}
+
+
+
+
+
 footer {
   bottom: 0;
   width: 100%;
@@ -138,4 +159,11 @@ footer {
 .whiteCenter {
   color: white;
   text-align: center;
+}
+
+.bgforModal{
+  background-color: red;
+  background-size: cover;
+  z-index: 5388 !important;
+  height: 100%;
 }

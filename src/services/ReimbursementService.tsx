@@ -60,6 +60,17 @@ const ReimbursementService = {
     return axios.put(Update_REST_API_URL, reimbursement, config)
   },
 
+  updateStatus: (token: string, reimbursement: { reimb_id: string, statusName: string}) => {
+    const config = {
+      headers : {
+        Authorization: token
+      },
+      validateStatus: () => true
+    }
+    
+    return axios.put(UpdateStatus_REST_API_URL, reimbursement, config)
+  },
+
   getPendingReimbursements: (token: string) => {
     const config = {
       headers : {
@@ -139,16 +150,7 @@ const ReimbursementService = {
 
 
 
-  updateStatus: (reimbursement: { reimb_id: string, statusName: string}) => {
-    const config = {
-      headers : {
-        Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0MmFiZDE1Yi04ZThhLTQ3MzctODUyMy1lOTcyMjYwMzYwODUiLCJpc3MiOiJ0ZWNoLXByb2plY3QiLCJpYXQiOjE2NDc4MTgzNTgsImV4cCI6MTY0NzgyMTk1OCwic3ViIjoiYmV0YXBzaWkiLCJyb2xlIjoiRklOQU5DRSBNQU5BR0VSIn0.2Jnnp3Kqy8a8t_lkxOOQtyZoPs3nZkI-FALWy3ihQ9Q"
-      },
-      validateStatus: () => true
-    }
-    
-    return axios.put(UpdateStatus_REST_API_URL, reimbursement, config)
-  },
+  
   
   getResolved: () => {
     const config = {
