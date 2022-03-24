@@ -246,9 +246,8 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
   return (
     <>
       <main id="reimbursement-list" className="container-fluid">
-        {role === "FINANCE MANAGER" ? 
-        <h1>Reimbursements</h1> : 
-        <h1>{reimbursements[0].author_id}'s Reimbursements</h1>}
+        {role === "FINANCE MANAGER" && <h1>Reimbursements</h1>}
+        {role === "EMPLOYEE" && <h1>Your Reimbursements</h1>}
         
         <div className={tableNavStyle}>
           {role === "EMPLOYEE" && (

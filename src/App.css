@@ -147,6 +147,14 @@ main {
   padding-top: 5%;
 }
 
+#user-list .table-nav {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 20px;
+  width: 85%;
+  margin: 0 auto 15px;
+}
+
 footer {
   bottom: 0;
   width: 100%;

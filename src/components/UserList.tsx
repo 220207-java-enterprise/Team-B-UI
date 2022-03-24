@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
-import {Link} from 'react-router-dom'
 import AppCookies from "../interfaces/AppCookies";
 import UserService from "../services/UserService";
 
 export const UserList = (props: {cookies: AppCookies}) => {
   const cookies = props.cookies;
+  const token = (cookies.token as string);
+
   const [users, setUsers] = useState([]);
+  const [selectIndex, setSelectIndex] = useState(0);
 
   useEffect(() => {
-    const token = (cookies.token as string);
-    
-    console.log(token)
     UserService.getUsers(token)
       .then((response) => {
         setUsers(response.data);
@@ -21,13 +20,63 @@ export const UserList = (props: {cookies: AppCookies}) => {
       });
   }, [cookies]);
 
+  useEffect(() => {
+    switch (selectIndex) {
+      case 0:
+      case 1:
+        UserService.getUsers(token)
+          .then((response) => {
+            setUsers(response.data);
+            console.log(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        break;
+      
+      case 2:
+        UserService.getInactive(token)
+          .then((response) => {
+            setUsers(response.data);
+            console.log(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        break;
+
+      case 3:
+        UserService.getAll(token)
+          .then(response => {
+            setUsers(response.data);
+            console.log(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+    }
+  }, [selectIndex]);
+
   return (
     <main id="user-list" className="container-fluid">
-      <h2 className="text-center">Active Users</h2>
+      {(selectIndex === 0 || selectIndex === 1) && <h2 className="text-center">Active Users</h2>}
+      {selectIndex === 2 && <h2 className="text-center">Inactive Users</h2>}
+      {selectIndex === 3 && <h2 className="text-center">All Users</h2>}
 
-      <button className="btn btn-secondary">
-        Create Reimbursement
-      </button>
+      <div className="table-nav">
+        <select 
+          id="dropdown_list"
+          className="btn btn-secondary"
+          onChange={e => setSelectIndex(e.target.selectedIndex)}
+        >
+          <option value="Filter by:">
+              Filter by:
+          </option>
+          <option value="Active">Active</option>
+          <option value="Inactive">Inactive</option>
+          <option value="Inactive">All</option>
+        </select>
+      </div>
 
       <table className="table table-bordered table-striped m-auto">
         <thead>
@@ -36,6 +85,8 @@ export const UserList = (props: {cookies: AppCookies}) => {
             <td>Last Name</td>
             <td>Username</td>
             <td>Role</td>
+            {selectIndex !== 3 && <td>Action</td>}
+            {selectIndex === 3 && <td>Status</td>}
           </tr>
         </thead>
 
@@ -45,13 +96,27 @@ export const UserList = (props: {cookies: AppCookies}) => {
             firstName: string,
             lastName: string,
             username: string,
-            role: string
+            role: string,
+            status: string
           }) => (
             <tr id={user.id} key={user.id}>
               <td>{user.firstName}</td>
               <td>{user.lastName}</td>
               <td>{user.username}</td>
               <td>{user.role}</td>
+              {selectIndex === 2 && 
+              <td>
+                <button id="activate-btn" className="btn btn-warning">
+                  Activate
+                </button>
+              </td>}
+              {(selectIndex === 0 || selectIndex === 1) && 
+              <td>
+                <button id="delete-btn" className="btn btn-danger">
+                  Delete
+                </button>
+              </td>}
+              {selectIndex === 3 && <td>{user.status}</td>}
             </tr>
           ))}
         </tbody>
