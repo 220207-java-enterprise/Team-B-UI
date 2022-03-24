@@ -39,7 +39,13 @@ export const UserList = (props: {cookies: AppCookies}) => {
 
         <tbody>
           {/* TODO assign type correctly */}
-          {users.length > 0 && users.map((user:any) => (
+          {users.length > 0 && users.map((user: {
+            id: string,
+            firstName: string,
+            lastName: string,
+            username: string,
+            role: string
+          }) => (
             <tr id={user.id} key={user.id}>
               <td>{user.firstName}</td>
               <td>{user.lastName}</td>

@@ -19,31 +19,7 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
   const [description, setDescription] = useState("" as string | null | undefined);
   const [type, setType] = useState("" as string | null | undefined);
   const [status, setStatus] = useState("" as string | null | undefined);
-
-  const handleModal = (e: SyntheticEvent) => {
-    setModal(!modal);
-    const target = e.target as HTMLButtonElement;
-    const tableRow = target?.parentNode?.parentNode as HTMLElement;
-    
-    console.log(target?.parentNode?.parentNode?.childNodes.item(3).textContent)
-
-    const extractedId = tableRow.getAttribute("id");
-    const extractedAmount = target?.parentNode?.parentNode?.childNodes
-      .item(1)
-      .textContent?.substring(1);
-    const extractedDescription =
-      target?.parentNode?.parentNode?.childNodes.item(2).textContent;
-    const extractedType =
-      target?.parentNode?.parentNode?.childNodes.item(5).textContent;
-    const extractedStatus =
-      target?.parentNode?.parentNode?.childNodes.item(4).textContent;
-
-    setId(extractedId);
-    setAmount(extractedAmount);
-    setDescription(extractedDescription);
-    setType(extractedType);
-    setStatus(extractedStatus);
-  };
+  const [statusIndex, setStatusIndex] = useState(0);
 
   useEffect(() => {
     if (role === "FINANCE MANAGER") {
@@ -186,6 +162,35 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
     }
   }, [selectIndex, token]);
 
+  useEffect(() => {
+    
+  }, [statusIndex])
+
+  const handleModal = (e: SyntheticEvent) => {
+    setModal(!modal);
+    const target = e.target as HTMLButtonElement;
+    const tableRow = target?.parentNode?.parentNode as HTMLElement;
+    
+    console.log(target?.parentNode?.parentNode?.childNodes.item(3).textContent)
+
+    const extractedId = tableRow.getAttribute("id");
+    const extractedAmount = target?.parentNode?.parentNode?.childNodes
+      .item(1)
+      .textContent?.substring(1);
+    const extractedDescription =
+      target?.parentNode?.parentNode?.childNodes.item(2).textContent;
+    const extractedType =
+      target?.parentNode?.parentNode?.childNodes.item(5).textContent;
+    const extractedStatus =
+      target?.parentNode?.parentNode?.childNodes.item(4).textContent;
+
+    setId(extractedId);
+    setAmount(extractedAmount);
+    setDescription(extractedDescription);
+    setType(extractedType);
+    setStatus(extractedStatus);
+  };
+
   function noPending() {
     const pendingReimbs = reimbursements.filter(reimbursement => {
       if (reimbursement.status === "PENDING")
@@ -196,7 +201,38 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
     if (pendingReimbs.length === 0)
       return true;
     else
-      return false;
+      return false; 
+  }
+
+  function handleStatusChange(e: SyntheticEvent) {
+    const target = e.target as HTMLSelectElement;
+    const tableRow = target.parentNode?.parentNode as HTMLElement;
+    
+    setId(tableRow.getAttribute("id"));
+    setStatusIndex(target.selectedIndex);
+
+    switch (statusIndex) {
+      case 1:
+        setStatus("APPROVED");
+        console.log("updated to: " + status);
+        break;
+      case 2:
+        setStatus("DENIED");
+        console.log("updated to: " + status);
+        break;
+      default: return
+    }
+    
+    ReimbursementService.updateStatus(token, {reimb_id: id as string, statusName: status as string })
+      .then((response) => {
+        console.log(response);
+
+        if (response.status === 200) {
+          console.log(response.data);
+          setReimbursements(response.data);
+        } else console.log(response.status);
+      })
+      .catch((error) => console.log(error));
   }
 
   if (reimbursements.length === 0)
@@ -252,14 +288,26 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
           </thead>
 
           <tbody>
-            {reimbursements.map((reimbursement: Reimbursement) => (
+            {reimbursements.length > 0 && reimbursements.map((reimbursement: Reimbursement) => (
               <tr id={reimbursement.id} key={reimbursement.id}>
                 <td>{reimbursements.indexOf(reimbursement) + 1}</td>
                 <td>{"$" + parseFloat(reimbursement.amount).toFixed(2)}</td>
                 <td>{reimbursement.description}</td>
                 {role === "FINANCE MANAGER" && <td>{reimbursement.author_id}</td>}
                 <td>{reimbursement.resolver_id}</td>
-                <td>{reimbursement.status}</td>
+                <td>
+                  {role === "FINANCE MANAGER" && reimbursement.status === "PENDING" ? 
+                  <select 
+                    onChange={handleStatusChange}
+                  >
+                    <option>Pending</option>
+                    <option>Approve</option>
+                    <option>Deny</option>
+                  </select>
+                  :
+                  reimbursement.status
+                  }
+                </td>
                 <td className="type">{reimbursement.type}</td>
                 {role === "EMPLOYEE" && reimbursement.status === "PENDING" &&
                 <td>
