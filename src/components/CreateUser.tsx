@@ -9,12 +9,13 @@ const CreateUser = () => {
   const [email, setEmail] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
   const navigate = useNavigate(); // The 'useHistory() hook' returns an object history'
 
   // TODO: figure out what type this is supposed to take
   const saveUser = (e:any) => {
     e.preventDefault();
-    const user = { firstName, lastName, email, username, password };
+    const user = { firstName, lastName, email, username, password, role };
     console.log(user);
    UserService.createUser(user).then(response=>{
       console.log(response.data)
@@ -100,6 +101,18 @@ const CreateUser = () => {
                     className="form-control"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                  ></input>
+                </div>
+
+                <div className="form-group mb-2">
+                  <label className="form-label">Role :</label>
+                  <input
+                    type="text"
+                    placeholder="EMPLOYEE"
+                    name="Role"
+                    className="form-control"
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
                   ></input>
                 </div>
               
