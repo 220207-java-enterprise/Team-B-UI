@@ -9,9 +9,6 @@ export const UserList = (props: {cookies: AppCookies}) => {
 
   useEffect(() => {
     const token = (cookies.token as string);
-    const principal = cookies.principal;
-    
-    console.log(cookies);
     
     console.log(token)
     UserService.getUsers(token)
@@ -22,7 +19,7 @@ export const UserList = (props: {cookies: AppCookies}) => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [cookies]);
 
   return (
     <main id="user-list" className="container-fluid">

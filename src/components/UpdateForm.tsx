@@ -1,34 +1,28 @@
 import { SyntheticEvent, useState } from "react";
 
 import ReimbursementService from "../services/ReimbursementService";
-import { useNavigate } from "react-router-dom";
-import AppCookies from "../interfaces/AppCookies";
 
-const Update = (props: {
-  cookies: AppCookies;
-  token: string;
-  id: string;
-  amount: string;
-  description: string;
-  status:string
-  modal: boolean;
+const UpdateForm = (props: {
+  id: string,
+  amount: string,
+  description: string,
+  status: string,
+  type: string,
+  setModal: (bool: boolean) => void,
+  token: string
 }) => {
-  const token = props.token;
   const id = props.id;
-  const cookies = props.cookies;
-  const role = cookies.principal?.role;
+  const token = props.token;
+  const setModal = props.setModal;
 
-  const [modal, setModal] = useState(props.modal);
   const [amount, setAmount] = useState(props.amount);
   const [description, setDescription] = useState(props.description);
-  const [type, setType] = useState("");
-  const [status,setStatus] = useState(props.status)
+  const [type, setType] = useState(props.type);
 
   const updateReimbursement = (e: SyntheticEvent) => {
     e.preventDefault();
     const reimbursement = { id, amount, description, type };
     console.log(reimbursement);
-    console.log("this is the id " + id);
 
     ReimbursementService.update(token, reimbursement)
       .then((response) => {
@@ -40,15 +34,12 @@ const Update = (props: {
         }
       })
       .catch((error) => console.log(error));
+
+      window.location.reload();
   };
 
-
-      
-
-if (role==="EMPLOYEE"){return <>
-
-
-<div id="update-form" className="container">
+  return (
+    <div id="update-form" className="container">
       <div className="row">
         <div className="card col-md-6 offset-md-3 offset-md-3">
           <h2 className="text-center">Update Reimbursement</h2>
@@ -80,14 +71,25 @@ if (role==="EMPLOYEE"){return <>
 
               <div className="form-group mb-2">
                 <label className="form-label">Type :</label>
-                <input
+                <select
+                    placeholder="Type"
+                    name="Type"
+                    className="form-control"
+                    value={type}
+                    onChange={(e) => setType(e.target.value)}>
+                    <option value="Lodging">Lodging</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Food">Food</option>
+                    <option value="Other">Other</option>
+                  </select>
+                {/* <input
                   type="text"
                   placeholder="Type"
                   name="Type"
                   className="form-control"
                   value={type}
                   onChange={(e) => setType(e.target.value)}
-                ></input>
+                ></input> */}
               </div>
 
               <button
@@ -104,25 +106,12 @@ if (role==="EMPLOYEE"){return <>
               >
                 Cancel
               </button>
-              <button
-                className="btn btn-success"
-                onClick={(e) => setModal(false)}
-              >
-                Finished
-              </button>
             </form>
           </div>
         </div>
       </div>
     </div>
+  )
+}
 
-
-</>}
-
-  
-
-
-
-};
-
-export default Update;
+export default UpdateForm;
