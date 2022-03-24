@@ -17,7 +17,7 @@ const UpdateForm = (props: {
 
   const [amount, setAmount] = useState(props.amount);
   const [description, setDescription] = useState(props.description);
-  const [type, setType] = useState(props.type);
+  const [type, setType] = useState("LODGING");
 
   const updateReimbursement = (e: SyntheticEvent) => {
     e.preventDefault();

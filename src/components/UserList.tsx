@@ -23,19 +23,23 @@ export const UserList = (props: {cookies: AppCookies}) => {
 
   return (
     <main id="user-list" className="container-fluid">
-      <h2 className="text-center">List Users</h2>
+      <h2 className="text-center">Active Users</h2>
+
+      <button className="btn btn-secondary">
+        Create Reimbursement
+      </button>
+
       <table className="table table-bordered table-striped m-auto">
         <thead>
           <tr>
-            <td className="white">First Name</td>
-            <td className="white">Last Name</td>
-            <td className="white">Username</td>
-            <td className="white">Role</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Username</td>
+            <td>Role</td>
           </tr>
         </thead>
 
         <tbody>
-          {/* TODO assign type correctly */}
           {users.length > 0 && users.map((user: {
             id: string,
             firstName: string,

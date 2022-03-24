@@ -8,7 +8,7 @@ const NewReimbursementForm = (props: { cookies: AppCookies }) => {
 
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
-  const [type, setType] = useState("");
+  const [type, setType] = useState("LODGING");
   const navigate = useNavigate();
 
   const cookies = props.cookies;

@@ -162,6 +162,41 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
     }
   }, [selectIndex, token]);
 
+  useEffect(() => {
+
+    switch (statusIndex) {
+      case 1:
+  
+        ReimbursementService.updateStatus(token, {reimb_id: id as string, statusName: "APPROVED" })
+          .then((response) => {
+            console.log(response);
+
+            if (response.status === 200) {
+              console.log(response.data);
+              setReimbursements(response.data);
+            } else console.log(response.status);
+          })
+          .catch((error) => console.log(error));
+
+        break;
+
+      case 2:
+        
+        ReimbursementService.updateStatus(token, {reimb_id: id as string, statusName: "DENIED" })
+        .then((response) => {
+          console.log(response);
+
+          if (response.status === 200) {
+            console.log(response.data);
+            setReimbursements(response.data);
+          } else console.log(response.status);
+        })
+        .catch((error) => console.log(error));
+    }
+
+    setSelectIndex(0);
+  }, [statusIndex]);
+
   const handleModal = (e: SyntheticEvent) => {
     setModal(!modal);
     const target = e.target as HTMLButtonElement;
@@ -206,33 +241,7 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
     
     setId(tableRow.getAttribute("id"));
     setStatusIndex(target.selectedIndex);
-
-    switch (statusIndex) {
-      case 1:
-        setStatus("APPROVED");
-        console.log("updated to: " + status);
-        break;
-      case 2:
-        setStatus("DENIED");
-        console.log("updated to: " + status);
-        break;
-      default: return
-    }
-    
-    ReimbursementService.updateStatus(token, {reimb_id: id as string, statusName: status as string })
-      .then((response) => {
-        console.log(response);
-
-        if (response.status === 200) {
-          console.log(response.data);
-          setReimbursements(response.data);
-        } else console.log(response.status);
-      })
-      .catch((error) => console.log(error));
   }
-
-  if (reimbursements.length === 0)
-    return (<h1>Loading...</h1>)
 
   return (
     <>
@@ -254,7 +263,7 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
               className="btn btn-secondary dropdown-toggle"
               onChange={(e) => setSelectIndex(e.target.selectedIndex)}
             >
-              <option selected value="Filter by:">
+              <option value="Filter by:">
                 Filter by:
               </option>
               <option value="All">All</option>
