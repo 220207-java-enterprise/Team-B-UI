@@ -1,10 +1,8 @@
-import React, { SyntheticEvent, useEffect, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import AppCookies from "../interfaces/AppCookies";
 import ReimbursementService from "../services/ReimbursementService";
 import Reimbursement from "../interfaces/Reimbursement";
-import { sortAndDeduplicateDiagnostics } from "typescript";
-import Update from "./Update";
-import { useNavigate } from "react-router-dom";
+import UpdateForm from "./UpdateForm";
 import UpdateStatus from "./UpdateStatus";
 
 export const ReimbursementList = (props: { cookies: AppCookies }) => {
@@ -12,40 +10,38 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
   const token = cookies.token as string;
   const role = cookies.principal?.role;
 
-  const [reimbursements, setReimbursements] = useState([]);
+  const [reimbursements, setReimbursements] = useState([] as Reimbursement[]);
   const [selectIndex, setSelectIndex] = useState(0);
   const [tableNavStyle, setStyle] = useState("");
-  const [id, setId] = useState<any | null>(null);
+  const [id, setId] = useState("" as string | null);
   const [modal, setModal] = useState(false);
-  const [amount, setAmount] = useState<any | null>(null);
-  const [description, setDescription] = useState<any | null>(null);
-  const [status, setStatus] = useState<any | null>(null);
-  const [type, setType] = useState("");
-  const navigate = useNavigate();
+  const [amount, setAmount] = useState("" as string | undefined);
+  const [description, setDescription] = useState("" as string | null | undefined);
+  const [type, setType] = useState("" as string | null | undefined);
+  const [status, setStatus] = useState("" as string | null | undefined);
 
   const handleModal = (e: SyntheticEvent) => {
     setModal(!modal);
-    const target = e.target as Text;
+    const target = e.target as HTMLButtonElement;
+    const tableRow = target?.parentNode?.parentNode as HTMLElement;
+    
+    console.log(target?.parentNode?.parentNode?.childNodes.item(3).textContent)
 
-    console.log(target?.parentNode?.parentNode?.childNodes.item(3).textContent);
-    let extractedId =
-      target?.parentNode?.parentNode?.childNodes.item(3).textContent;
-    let extractedAmount = target?.parentNode?.parentNode?.childNodes
+    const extractedId = tableRow.getAttribute("id");
+    const extractedAmount = target?.parentNode?.parentNode?.childNodes
       .item(1)
       .textContent?.substring(1);
-    let extractedDescription =
+    const extractedDescription =
       target?.parentNode?.parentNode?.childNodes.item(2).textContent;
-
-    let extractedStatus =
+    const extractedType =
       target?.parentNode?.parentNode?.childNodes.item(5).textContent;
+    const extractedStatus =
+      target?.parentNode?.parentNode?.childNodes.item(4).textContent;
 
-    
-
-    console.log(e.currentTarget + "DO you see anything useful?");
-    console.log(id);
     setId(extractedId);
     setAmount(extractedAmount);
     setDescription(extractedDescription);
+    setType(extractedType);
     setStatus(extractedStatus);
   };
 
@@ -79,11 +75,9 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
         })
         .catch((error) => console.log(error));
     }
-  }, [cookies]);
+  }, [role, token, modal]);
 
   useEffect(() => {
-    console.log("You changed the index");
-
     switch (selectIndex) {
       case 0:
       case 1:
@@ -190,14 +184,31 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
           .catch((error) => console.log(error));
         break;
     }
-  }, [selectIndex]);
+  }, [selectIndex, token]);
+
+  function noPending() {
+    const pendingReimbs = reimbursements.filter(reimbursement => {
+      if (reimbursement.status === "PENDING")
+        return true;
+      else
+        return false;
+    });
+    if (pendingReimbs.length === 0)
+      return true;
+    else
+      return false;
+  }
+
+  if (reimbursements.length === 0)
+    return (<h1>Loading...</h1>)
 
   return (
     <>
       <main id="reimbursement-list" className="container-fluid">
-        <h2 className="whiteCenter">List Reimbursements</h2>
-        <h1 className="whiteCenter">Logged in as {props.cookies.principal.username}</h1>
-
+        {role === "FINANCE MANAGER" ? 
+        <h1>Reimbursements</h1> : 
+        <h1>{reimbursements[0].author_id}'s Reimbursements</h1>}
+        
         <div className={tableNavStyle}>
           {role === "EMPLOYEE" && (
             <a href="/reimbursements/create" className="btn btn-secondary">
@@ -230,68 +241,54 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
           <thead>
             <tr>
               <td>#</td>
-
               <td>Amount</td>
-
               <td>Description</td>
-
-              <td>ReimbID</td>
-
-              <td>Author</td>
+              {role === "FINANCE MANAGER" && <td>Author</td>}
               <td>Resolver</td>
               <td>Status</td>
               <td>Type</td>
-              <td>Action</td>
+              {role === "EMPLOYEE" && !noPending() && <td>Action</td>}
             </tr>
           </thead>
 
           <tbody>
             {reimbursements.map((reimbursement: Reimbursement) => (
               <tr id={reimbursement.id} key={reimbursement.id}>
-                {/* @ts-ignore */}
                 <td>{reimbursements.indexOf(reimbursement) + 1}</td>
                 <td>{"$" + parseFloat(reimbursement.amount).toFixed(2)}</td>
                 <td>{reimbursement.description}</td>
-                <td>{reimbursement.id}</td>
-                <td>{reimbursement.author_id}</td>
+                {role === "FINANCE MANAGER" && <td>{reimbursement.author_id}</td>}
                 <td>{reimbursement.resolver_id}</td>
                 <td>{reimbursement.status}</td>
-                <td className="type">
-                  {reimbursement.type}
-                  {role === "FINANCE MANAGER" && (
-                    <i className="fa fa-trash" aria-hidden="true"></i>
-                  )}
-                </td>
+                <td className="type">{reimbursement.type}</td>
+                {role === "EMPLOYEE" && reimbursement.status === "PENDING" &&
                 <td>
                   <button id="update-btn" className="btn btn-warning" onClick={handleModal}>
                     Update
                   </button>
-                </td>
+                </td>}
               </tr>
             ))}
           </tbody>
         </table>
         {modal && role === "EMPLOYEE" && (
-          <Update
-            cookies={cookies}
-            id={id}
-            amount={amount}
-            description={description}
-            status={status}
-            modal={modal}
+          <UpdateForm
+            id={id || ""}
+            amount={amount || ""}
+            description={description || ""}
+            status={status || ""}
+            type={type || ""}
+            setModal={setModal}
             token={token}
           />
         )}
 
         {modal && role === "FINANCE MANAGER" && (
           <UpdateStatus 
-          cookies={cookies}
-            id={id}
-            amount={amount}
-            description={description}
-            status={status}
-            modal={modal}
+            id={id || ""}
+            status={status || ""}
             token={token}
+            setModal={setModal}
             />
         )
         }

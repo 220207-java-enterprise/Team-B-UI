@@ -85,6 +85,10 @@ main {
   padding-top: 30px;
 }
 
+#reimbursement-list h1 {
+  text-align: center;
+}
+
 #reimbursement-list h2 {
   margin-bottom: 20px;
 }
@@ -126,26 +130,12 @@ main {
   background-color: #1597E5;
 }
 
-td:nth-of-type(4) {
-
-  display: none;
-  
-  }
-
-table.thead.tr.td:first-child { display: none; }
-
 #update-form .card{
   position: fixed;
   z-index: 4;
   top:20%;
   left: 0%;
-  
-
 }
-
-
-
-
 
 footer {
   bottom: 0;
@@ -154,16 +144,4 @@ footer {
   background-color: #041C32;
   text-align: center;
   color: white;
-}
-
-.whiteCenter {
-  color: white;
-  text-align: center;
-}
-
-.bgforModal{
-  background-color: red;
-  background-size: cover;
-  z-index: 5388 !important;
-  height: 100%;
 }
