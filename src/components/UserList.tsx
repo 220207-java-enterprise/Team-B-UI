@@ -24,9 +24,6 @@ export const UserList = (props: {cookies: AppCookies}) => {
   return (
     <main id="user-list" className="container-fluid">
       <h2 className="text-center">List Users</h2>
-      <Link to = "/users/add" className="btn btn-primary mb-2">Create User</Link>
-      <Link to = "/users/activate" className="btn btn-primary mb-2">Activate User</Link>
-      <Link to = "/users/delete" className="btn btn-primary mb-2">Delete User</Link>
       <table className="table table-bordered table-striped m-auto">
         <thead>
           <tr>

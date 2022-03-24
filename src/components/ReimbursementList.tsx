@@ -162,10 +162,6 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
     }
   }, [selectIndex, token]);
 
-  useEffect(() => {
-    
-  }, [statusIndex])
-
   const handleModal = (e: SyntheticEvent) => {
     setModal(!modal);
     const target = e.target as HTMLButtonElement;
