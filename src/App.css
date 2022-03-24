@@ -143,6 +143,10 @@ main {
   left: 0%;
 }
 
+#user-list {
+  padding-top: 5%;
+}
+
 footer {
   bottom: 0;
   width: 100%;
