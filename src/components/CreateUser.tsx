@@ -9,7 +9,7 @@ const CreateUser = () => {
   const [email, setEmail] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState("Employee");
   const navigate = useNavigate(); // The 'useHistory() hook' returns an object history'
 
   // TODO: figure out what type this is supposed to take
@@ -105,15 +105,16 @@ const CreateUser = () => {
                 </div>
 
                 <div className="form-group mb-2">
-                  <label className="form-label">Role :</label>
-                  <input
-                    type="text"
-                    placeholder="EMPLOYEE"
+                <label className="form-label">Role :</label>
+                  <select
                     name="Role"
                     className="form-control"
                     value={role}
-                    onChange={(e) => setRole(e.target.value)}
-                  ></input>
+                    onChange={(e) => setRole(e.target.value)}>
+                    <option value="Employee">Employee</option>
+                    <option value="Finance Manager">Finance Manager</option>
+                    <option value="Admin">Admin</option>
+                  </select>
                 </div>
               
                 <button
