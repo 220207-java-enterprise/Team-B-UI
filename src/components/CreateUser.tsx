@@ -29,7 +29,7 @@ const CreateUser = () => {
       <div className="container">
         <div className="row">
           <div className="card col-md-6 offset-md-3 offset-md-3">
-            <h2 className="text-center">Create User</h2>
+            <h2 className="text-center">Signup</h2>
             <div className="card-body">
               <form>
 
