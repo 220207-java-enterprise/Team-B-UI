@@ -167,12 +167,21 @@ main {
   padding-top: 5%;
 }
 
+
+
 #user-list .table-nav {
+
   display: flex;
   justify-content: flex-end;
   padding-top: 20px;
   width: 85%;
   margin: 0 auto 15px;
+}
+
+#user-list thead {
+  font-size: 20px;
+  font-weight: bolder;
+  color: #6E3CBC;
 }
 
 footer {
