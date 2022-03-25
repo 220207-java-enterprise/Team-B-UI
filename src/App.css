@@ -118,7 +118,8 @@ main {
 
 #reimbursement-list thead {
   font-size: 20px;
-  color: whitesmoke;
+  font-weight: bolder;
+  color: #6E3CBC;
 }
 
 #reimbursement-list tbody select {
@@ -133,7 +134,7 @@ main {
 }
 
 #new-reimbursement .card {
-  margin-bottom: 6em;
+  margin-bottom: 4em;
   padding: 10px 0;
   background-color: #F3F1F5;
   box-shadow: -5px 4px 3px #b6b8be;
