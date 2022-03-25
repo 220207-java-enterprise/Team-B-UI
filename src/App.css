@@ -133,7 +133,7 @@ main {
 }
 
 #new-reimbursement .card {
-  margin-bottom: 30em;
+  margin-bottom: 6em;
   padding: 10px 0;
   background-color: #F3F1F5;
   box-shadow: -5px 4px 3px #b6b8be;
@@ -181,4 +181,8 @@ footer {
   background-color: #041C32;
   text-align: center;
   color: white;
+}
+
+.dim {
+  opacity: .65;
 }
