@@ -60,6 +60,13 @@ main {
   font-size: 45px;
 }
 
+#new-user .card {
+  margin-top: 2em;
+  padding: 10px 0;
+  background-color: #F3F1F5;
+  box-shadow: -5px 4px 3px #b6b8be;
+}
+
 #login {
   display: flex;
   justify-content: center;
@@ -73,7 +80,7 @@ main {
   box-shadow: -5px 4px 3px #b6b8be;
 }
 
-#login button {
+#new-user button, #login button {
   background-color: #1597E5;
 }
 
@@ -141,6 +148,18 @@ main {
   z-index: 4;
   top:20%;
   left: 0%;
+  padding: 2em 0 1em;
+  background-color: #F3F1F5;
+  box-shadow: -5px 4px 3px #b6b8be;
+}
+
+#update-form button {
+  margin: .5em 1em 0 0;
+}
+
+#update-form .submit {
+  background-color: #1597E5;
+  color: #F3F1F5
 }
 
 #user-list {

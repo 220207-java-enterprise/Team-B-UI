@@ -163,10 +163,8 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
   }, [selectIndex, token]);
 
   useEffect(() => {
-
     switch (statusIndex) {
       case 1:
-  
         ReimbursementService.updateStatus(token, {reimb_id: id as string, statusName: "APPROVED" })
           .then((response) => {
             console.log(response);
@@ -176,12 +174,16 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
               setReimbursements(response.data);
             } else console.log(response.status);
           })
+          .then(() => {
+            if (selectIndex === 0)
+              setSelectIndex(1);
+            else
+              setSelectIndex(0);
+          })
           .catch((error) => console.log(error));
-
         break;
 
       case 2:
-        
         ReimbursementService.updateStatus(token, {reimb_id: id as string, statusName: "DENIED" })
         .then((response) => {
           console.log(response);
@@ -191,10 +193,14 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
             setReimbursements(response.data);
           } else console.log(response.status);
         })
+        .then(() => {
+          if (selectIndex === 0)
+            setSelectIndex(1);
+          else
+            setSelectIndex(0);
+        })
         .catch((error) => console.log(error));
     }
-
-    setSelectIndex(0);
   }, [statusIndex]);
 
   const handleModal = (e: SyntheticEvent) => {

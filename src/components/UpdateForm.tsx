@@ -82,18 +82,10 @@ const UpdateForm = (props: {
                     <option value="Food">Food</option>
                     <option value="Other">Other</option>
                   </select>
-                {/* <input
-                  type="text"
-                  placeholder="Type"
-                  name="Type"
-                  className="form-control"
-                  value={type}
-                  onChange={(e) => setType(e.target.value)}
-                ></input> */}
               </div>
 
               <button
-                className="btn btn-success"
+                className="btn submit"
                 data-dismiss="modal"
                 onClick={(e) => updateReimbursement(e)}
               >
