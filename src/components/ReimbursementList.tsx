@@ -251,7 +251,7 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
 
   return (
     <>
-      <main id="reimbursement-list" className="container-fluid">
+      <main id="reimbursement-list" className={modal ? "container-fluid dim" : "container-fluid"}>
         {role === "FINANCE MANAGER" && <h1>Reimbursements</h1>}
         {role === "EMPLOYEE" && <h1>Your Reimbursements</h1>}
         
@@ -329,28 +329,18 @@ export const ReimbursementList = (props: { cookies: AppCookies }) => {
             ))}
           </tbody>
         </table>
-        {modal && role === "EMPLOYEE" && (
-          <UpdateForm
-            id={id || ""}
-            amount={amount || ""}
-            description={description || ""}
-            status={status || ""}
-            type={type || ""}
-            setModal={setModal}
-            token={token}
-          />
-        )}
-
-        {modal && role === "FINANCE MANAGER" && (
-          <UpdateStatus 
-            id={id || ""}
-            status={status || ""}
-            token={token}
-            setModal={setModal}
-            />
-        )
-        }
       </main>
+      {modal && role === "EMPLOYEE" && (
+        <UpdateForm
+          id={id || ""}
+          amount={amount || ""}
+          description={description || ""}
+          status={status || ""}
+          type={type || ""}
+          setModal={setModal}
+          token={token}
+        />
+      )}
     </>
   );
 };

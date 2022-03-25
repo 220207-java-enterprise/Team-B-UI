@@ -28,6 +28,8 @@ const LoginForm = (
         // TODO: set navigation logic
         
        navigate('/');
+      } else {
+        console.log(response.data);
       }
 
     }).catch(error=> console.log(error));
