@@ -64,9 +64,8 @@ export const UserList = (props: {cookies: AppCookies}) => {
 
     UserService.activateUser(token, {id})
       .then(response => console.log(response.status))
-      .catch(error => console.log(error))
-
-    window.location.reload();
+      .then(() => setSelectIndex(0))
+      .catch(error => console.log(error));
   }
 
   const deleteHander = (e: SyntheticEvent) => {
@@ -76,9 +75,13 @@ export const UserList = (props: {cookies: AppCookies}) => {
 
     UserService.deleteUser(token, {id})
       .then(response => console.log(response.status))
-      .catch(error => console.log(error))
-
-    window.location.reload();
+      .then(() => {
+        if (selectIndex === 0)
+          setSelectIndex(1)
+        else
+          setSelectIndex(0)
+      })
+      .catch(error => console.log(error));
   }
 
   return (
