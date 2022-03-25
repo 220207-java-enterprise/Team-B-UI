@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, SyntheticEvent } from "react";
 import AppCookies from "../interfaces/AppCookies";
 import UserService from "../services/UserService";
 
@@ -57,6 +57,30 @@ export const UserList = (props: {cookies: AppCookies}) => {
     }
   }, [selectIndex]);
 
+  const activateHandler = (e: SyntheticEvent) => {
+    const target = e.target as HTMLButtonElement;
+    const tableRow = target.parentNode?.parentNode as HTMLTableRowElement;
+    const id = tableRow.getAttribute("id") as string;
+
+    UserService.activateUser(token, {id})
+      .then(response => console.log(response.status))
+      .catch(error => console.log(error))
+
+    window.location.reload();
+  }
+
+  const deleteHander = (e: SyntheticEvent) => {
+    const target = e.target as HTMLButtonElement;
+    const tableRow = target.parentNode?.parentNode as HTMLTableRowElement;
+    const id = tableRow.getAttribute("id") as string;
+
+    UserService.deleteUser(token, {id})
+      .then(response => console.log(response.status))
+      .catch(error => console.log(error))
+
+    window.location.reload();
+  }
+
   return (
     <main id="user-list" className="container-fluid">
       {(selectIndex === 0 || selectIndex === 1) && <h2 className="text-center">Active Users</h2>}
@@ -106,13 +130,13 @@ export const UserList = (props: {cookies: AppCookies}) => {
               <td>{user.role}</td>
               {selectIndex === 2 && 
               <td>
-                <button id="activate-btn" className="btn btn-warning">
+                <button id="activate-btn" className="btn btn-warning" onClick={activateHandler}>
                   Activate
                 </button>
               </td>}
               {(selectIndex === 0 || selectIndex === 1) && 
               <td>
-                <button id="delete-btn" className="btn btn-danger">
+                <button id="delete-btn" className="btn btn-danger" onClick={deleteHander}>
                   Delete
                 </button>
               </td>}

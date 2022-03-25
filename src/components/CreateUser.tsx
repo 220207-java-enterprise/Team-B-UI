@@ -31,17 +31,6 @@ const CreateUser = () => {
             <h2 className="text-center">Create User</h2>
             <div className="card-body">
               <form>
-                {/* <div className="form-group mb-2">
-                  <label className="form-label">Author Id :</label>
-                  <input
-                    type="text"
-                    placeholder="AuthorID"
-                    name="AuthorId"
-                    className="form-control"
-                    value={author_id}
-                    onChange={(e) => setAuthor_id(e.target.value)}
-                  ></input>
-                </div> */}
 
                 <div className="form-group mb-2">
                   <label className="form-label">First Name :</label>

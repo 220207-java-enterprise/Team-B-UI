@@ -60,6 +60,13 @@ main {
   font-size: 45px;
 }
 
+#new-user .card {
+  margin-top: 4em;
+  padding: 10px 0;
+  background-color: #F3F1F5;
+  box-shadow: -5px 4px 3px #b6b8be;
+}
+
 #login {
   display: flex;
   justify-content: center;
